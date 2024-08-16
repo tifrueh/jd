@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "mesonconf.h"
+
 void print_help(char argv_0[]) {
 
     char help_string[] =
@@ -31,7 +33,7 @@ int main(int argc, char* argv[]) {
         return 0;
 
     } else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
-        printf("flag: version\n");
+        printf("%s\n", TAG);
         return 0;
 
     } else if (strcmp(argv[1], "ls") == 0) {
