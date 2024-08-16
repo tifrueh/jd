@@ -28,6 +28,12 @@ configure_file(
   configuration: conf_data
 )
 
+configure_file(
+  input: 'doc/jd.1',
+  output: 'jd.1',
+  configuration: conf_data
+)
+
 # Set include directories.
 incdir = include_directories(
   '.'
@@ -42,3 +48,6 @@ jd = executable(
   'jd', src,
   install: true,
 )
+
+# Configure installation.
+install_man('build/jd.1')

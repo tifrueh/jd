@@ -1,0 +1,87 @@
+.TH JD 1 2024-08-17 "jd @tag@"
+.
+.SH NAME
+.
+jd \- universal johnny.decimal tool for UNIX-like operating systems
+.
+.SH SYNOPSIS
+.
+.SY jd
+.B \-h
+.SY jd
+.B \-\-help
+.YS
+.
+.SY jd
+.B \-v
+.SY jd
+.B \-\-version
+.YS
+.
+.SY jd
+.BR "\<command\> " ...
+.
+.SH DESCRIPTION
+.
+.P
+Lorem ipsum odor amet, consectetuer adipiscing elit. Nec fames etiam iaculis
+tempor habitasse elit mi vestibulum. Sed fringilla curae nulla parturient
+volutpat sed venenatis sociosqu. Augue duis orci viverra adipiscing dolor
+volutpat enim. Phasellus imperdiet magnis scelerisque sed sapien.
+.
+.P
+Justo ligula sapien metus dapibus suscipit proin varius. Nullam eget enim
+gravida conubia litora donec volutpat bibendum. Consectetur non inceptos
+volutpat himenaeos cras auctor. Nibh pharetra parturient nulla penatibus
+sociosqu facilisis.
+.
+.P
+Nullam mi montes; litora est suspendisse lorem. Nibh elit accumsan; rhoncus
+quisque sodales lobortis. Orci ultricies curae felis luctus interdum arcu.
+.
+.SH OPTIONS
+.
+.TP
+.B \-h, \-\-help
+Display a short help message.
+.
+.TP
+.B \-v, \-\-version
+Display version information.
+.
+.SS JD COMMANDS
+.
+.TP
+.BR jd-ls (1)
+List directories of the johnny.decimal system.
+.
+.TP
+.BR jd-cd (1)
+Change to a directory of the johnny.decimal system.
+.
+.TP
+.BR jd-config (1)
+Configure the \fBjd\fR utility.
+.
+.SH EXIT STATUS
+.
+The \fBjd\fR utility exits > 0 if an error occurs, 0 otherwise.
+.
+.SH ENVIRONMENT
+.
+.TP
+.I JD_PATH
+This environment variable can be used to override the configured file system
+path to the johnny.decimal system. Simply set it to the desired path. Tilde
+expansion is supported, e. g. \fI\(ti/johnny\fR would be an acceptable value.
+.
+.SH FILES
+.
+.TP
+.I \(ti/.config/jd/jd.conf
+This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
+.
+.SH SEE ALSO
+.
+.nh
+.BR jd-cd "(1), " jd-config "(1), " jd-ls "(1), " jd.conf "(5)"
