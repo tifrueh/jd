@@ -1,7 +1,7 @@
 project(
   'jd', 'c',
   license: 'GPL-3.0-or-later',
-  version: 'git'
+  version: '0.0.0-git'
 )
 
 # Try to get version string from git or use project version if that fails.
