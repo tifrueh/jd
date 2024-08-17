@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 
-int jd_config(int argc, char* argv[]);
+#include "configuration.h"
+
+int jd_config(int argc, char* argv[], const struct conf_data* configuration);
 
 #endif

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "configuration.h"
 #include "jd-cd.h"
 #include "jd-config.h"
 #include "jd-ls.h"
@@ -31,6 +32,11 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    char* conf_path_buffer = calloc(MAX_CONFIG_PATH_SIZE, sizeof(char));
+    get_conf_path(conf_path_buffer, MAX_CONFIG_PATH_SIZE);
+
+    struct conf_data configuration = {"JD_PATH"};
+
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0 ) {
         print_help(argv[0]);
         return 0;
@@ -46,7 +52,7 @@ int main(int argc, char* argv[]) {
         return jd_cd(argc -2, &argv[2]);
 
     } else if (strcmp(argv[1], "config") == 0) {
-        return jd_config(argc - 2, &argv[2]);
+        return jd_config(argc - 2, &argv[2], &configuration);
 
     } else {
         print_help(argv[0]);
