@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "jd-cd.h"
+#include "jd-config.h"
+#include "jd-ls.h"
 #include "mesonconf.h"
 
 void print_help(char argv_0[]) {
@@ -37,16 +40,13 @@ int main(int argc, char* argv[]) {
         return 0;
 
     } else if (strcmp(argv[1], "ls") == 0) {
-        printf("subcommand: ls\n");
-        return 0;
+        return jd_ls(argc -2, &argv[2]);
 
     } else if (strcmp(argv[1], "cd") == 0) {
-        printf("subcommand: cd\n");
-        return 0;
+        return jd_cd(argc -2, &argv[2]);
 
     } else if (strcmp(argv[1], "config") == 0) {
-        printf("subcommand: config\n");
-        return 0;
+        return jd_config(argc - 2, &argv[2]);
 
     } else {
         print_help(argv[0]);

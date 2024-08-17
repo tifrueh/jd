@@ -26,6 +26,9 @@ incdir = include_directories('include')
 
 # Set up a source list.
 src = files(
+  'src/jd-config.c',
+  'src/jd-cd.c',
+  'src/jd-ls.c',
   'src/main.c'
 )
 
