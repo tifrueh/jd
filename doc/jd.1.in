@@ -76,6 +76,11 @@ path to the johnny.decimal system. Simply set it to the desired path. Tilde
 expansion is supported, \fI\(ti/johnny\fR for example would be an acceptable
 value.
 .
+.TP
+.I XDG_CONFIG_HOME
+Path to the user-specific configuration directory. Defaults to
+\fI\(ti/.config\fR. See \fIFILES\fR.
+.
 .SH FILES
 .
 .TP
