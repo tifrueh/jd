@@ -21,33 +21,22 @@ conf_data = configuration_data()
 conf_data.set('version', version)
 conf_data.set('tag', 'v' + version)
 
-# Configure configuration-files.
-configure_file(
-  input: 'configuration-files/mesonconf.h.in',
-  output: 'mesonconf.h',
-  configuration: conf_data
-)
-
-configure_file(
-  input: 'doc/jd.1',
-  output: 'jd.1',
-  configuration: conf_data
-)
-
-# Set include directories.
-incdir = include_directories(
-  '.'
-)
+# Set up an include list.
+incdir = include_directories('include')
 
 # Set up a source list.
 src = files(
   'src/main.c'
 )
 
+# Execute the include subdir.
+subdir('include')
+
+# Execute the doc subdir.
+subdir('doc')
+
 jd = executable(
   'jd', src,
+  include_directories: incdir,
   install: true,
 )
-
-# Configure installation.
-install_man('build/jd.1')
