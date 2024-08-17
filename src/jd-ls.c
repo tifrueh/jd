@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "jd-ls.h"
 
 int jd_ls(int argc, char* argv[]) {
