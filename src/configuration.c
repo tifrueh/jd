@@ -12,7 +12,7 @@ int get_conf_path(char* path_buffer, size_t path_bufsize) {
 
 }
 
-int read_conf_data(char* buffer, const char* path, const char* name) {
+int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* name) {
     printf("reading %s from %s\n", name, path);
     return SUCCESS;
 };
