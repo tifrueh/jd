@@ -15,9 +15,9 @@ void print_help(char argv_0[]) {
         "  %1$s <command> ...\n"
         "\n"
         "<command> must be one of the following:\n"
-        "  ls        List directories of the jd system\n"
         "  cd        Change to a directory of the jd system\n"
         "  config    Configure the jd utility\n"
+        "  ls        List directories of the jd system\n"
         "\n"
         "For more information, please consult the manual page.\n";
 
