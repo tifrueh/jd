@@ -4,5 +4,5 @@ configure_file(
   output: 'jd.1',
   configuration: conf_data,
   install: true,
-  install_dir: 'share/man/man1/'
+  install_dir: get_option('mandir') + '/man1/'
 )
