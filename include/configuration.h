@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "retval.h"
+
 #define CONFIG_STUB "jd/jd.conf"
 #define MAX_CONFIG_PATH_SIZE 256
 

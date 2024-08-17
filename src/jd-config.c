@@ -4,5 +4,5 @@ int jd_config(int argc, char* argv[], const struct conf_data* configuration) {
 
     print_conf_data(configuration);
 
-    return 0;
+    return SUCCESS;
 }

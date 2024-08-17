@@ -14,16 +14,16 @@ int get_conf_path(char* path_buffer, size_t path_bufsize) {
 
 int read_conf_data(char* buffer, const char* path, const char* name) {
     printf("reading %s from %s\n", name, path);
-    return 0;
+    return SUCCESS;
 };
 
 int write_conf_data(const char* name, const char* value, const char* path) {
     printf("writing %s = %s to %s\n", name, value, path);
-    return 0;
+    return SUCCESS;
 }
 
 int print_conf_data(const struct conf_data* configuration) {
     printf("jd_path = %s\n", configuration->jd_path);
-    return 0;
+    return SUCCESS;
 }
 

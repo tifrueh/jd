@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 
     if (argc < 2) {
         print_help(argv[0]);
-        return 1;
+        return ERROR;
     }
 
     char* conf_path_buffer = calloc(MAX_CONFIG_PATH_SIZE, sizeof(char));
@@ -39,11 +39,11 @@ int main(int argc, char* argv[]) {
 
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0 ) {
         print_help(argv[0]);
-        return 0;
+        return SUCCESS;
 
     } else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
         printf("%s\n", TAG);
-        return 0;
+        return SUCCESS;
 
     } else if (strcmp(argv[1], "ls") == 0) {
         return jd_ls(argc -2, &argv[2]);
@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
 
     } else {
         print_help(argv[0]);
-        return 1;
+        return ERROR;
     }
 
 }
