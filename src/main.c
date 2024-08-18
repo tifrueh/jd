@@ -62,17 +62,17 @@ int main(int argc, char* argv[]) {
     }
 
     if (strcmp(argv[1], "ls") == 0) {
-        return_value = jd_ls(argc -2, &argv[2]);
+        return_value = jd_ls(argc - 1, &argv[2]);
         goto exit_jd;
     }
 
     if (strcmp(argv[1], "cd") == 0) {
-        return_value = jd_cd(argc -2, &argv[2]);
+        return_value = jd_cd(argc - 1, &argv[2]);
         goto exit_jd;
     }
 
     if (strcmp(argv[1], "config") == 0) {
-        return_value = jd_config(argc - 2, &argv[2], &configuration);
+        return_value = jd_config(argc - 1, &argv[2], &configuration);
         goto exit_jd;
     }
 
