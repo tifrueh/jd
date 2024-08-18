@@ -48,7 +48,7 @@ int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* n
     FILE* confptr = fopen(path, "r");
 
     if (confptr == NULL) {
-        perror("error reading config file");
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error reading config file %s: %s\n", path, strerror(errno));
         return ERROR;
     }
 
@@ -67,7 +67,7 @@ int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* n
         int err_code = parse_line(&pair, CONFIG_NAME_BUFSIZE, CONFIG_VALUE_BUFSIZE, line_buffer);
 
         if (err_code != SUCCESS) {
-            fprintf(stderr, "%s:%i: malformed config line\n", path, linenum);
+            snprintf(error_str, ERROR_STR_BUFSIZE, "%s:%i: malformed config line\n", path, linenum);
             return err_code;
         }
 

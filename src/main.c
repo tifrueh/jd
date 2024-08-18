@@ -45,6 +45,7 @@ int main(int argc, char* argv[]) {
 
     if (config_read == ERROR) {
         return_value = config_read;
+        fprintf(stderr, "%s", error_str);
         goto exit_jd;
     };
 

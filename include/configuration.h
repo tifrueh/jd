@@ -1,6 +1,7 @@
 #ifndef CONFIGURATION_H
 #define CONFIGURATION_H
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
