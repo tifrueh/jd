@@ -48,8 +48,7 @@ int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* n
     FILE* confptr = fopen(path, "r");
 
     if (confptr == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "error reading config file %s: %s\n", path, strerror(errno));
-        return ERROR;
+        return NOT_FOUND;
     }
 
     int linenum = 1;
