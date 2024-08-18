@@ -82,7 +82,7 @@ int main(int argc, char* argv[]) {
     free(conf_path_buffer);
     free(configuration.jd_path);
 
-    if (return_value != SUCCESS && strcmp(error_str, "") != 0) {
+    if (return_value == ERROR && strcmp(error_str, "") != 0) {
         fprintf(stderr, "%s", error_str);
     }
 
