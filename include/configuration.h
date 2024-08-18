@@ -15,6 +15,7 @@
 #define CONFIG_VALUE_BUFSIZE 256
 
 struct conf_data {
+    char* config_path;
     char* jd_path;
 };
 
@@ -22,7 +23,7 @@ int get_conf_path(char* path_buffer, size_t path_bufsize);
 
 int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* name);
 int write_conf_data(const char* name, const char* value, const char* path);
-int print_conf_data(const struct conf_data* configuration);
+int print_conf_data(const char* path);
 
 
 #endif

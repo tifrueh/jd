@@ -36,12 +36,17 @@ int main(int argc, char* argv[]) {
     get_conf_path(conf_path_buffer, MAX_CONFIG_PATH_SIZE);
 
     struct conf_data configuration = {
+        calloc(MAX_CONFIG_PATH_SIZE, sizeof(char)),
         calloc(CONFIG_VALUE_BUFSIZE, sizeof(char))
     };
 
+    snprintf(configuration.config_path, MAX_CONFIG_PATH_SIZE, "%s", conf_path_buffer);
+
+    free(conf_path_buffer);
+
     enum return_value return_value = ERROR;
 
-    int config_read = read_conf_data(configuration.jd_path, CONFIG_VALUE_BUFSIZE, conf_path_buffer, "jd_path");
+    int config_read = read_conf_data(configuration.jd_path, CONFIG_VALUE_BUFSIZE, configuration.config_path, "jd_path");
 
     if (config_read == ERROR) {
         return_value = config_read;
@@ -79,7 +84,7 @@ int main(int argc, char* argv[]) {
 
     exit_jd:
 
-    free(conf_path_buffer);
+    free(configuration.config_path);
     free(configuration.jd_path);
 
     if (return_value == ERROR && strcmp(error_str, "") != 0) {

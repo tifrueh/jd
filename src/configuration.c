@@ -89,8 +89,31 @@ int write_conf_data(const char* name, const char* value, const char* path) {
     return SUCCESS;
 }
 
-int print_conf_data(const struct conf_data* configuration) {
-    printf("jd_path = %s\n", configuration->jd_path);
+int print_conf_data(const char* path) {
+    FILE* confptr = fopen(path, "r");
+
+    if (confptr == NULL) {
+        return NOT_FOUND;
+    }
+
+    char line_buffer[CONFIG_LINE_BUFSIZE];
+
+    struct conf_pair pair = {
+        calloc(CONFIG_NAME_BUFSIZE, sizeof(char)),
+        calloc(CONFIG_VALUE_BUFSIZE, sizeof(char))
+    };
+
+    while (fgets(line_buffer, CONFIG_LINE_BUFSIZE, confptr)) {
+        int err_code = parse_line(&pair, CONFIG_NAME_BUFSIZE, CONFIG_VALUE_BUFSIZE, line_buffer);
+
+        if (err_code != SUCCESS) {
+            printf("malformed config line: %s\n", line_buffer);
+            continue;
+        }
+
+        printf("%s=%s\n", pair.name, pair.value);
+    }
+
     return SUCCESS;
 }
 
