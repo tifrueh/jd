@@ -35,28 +35,54 @@ int main(int argc, char* argv[]) {
     char* conf_path_buffer = calloc(MAX_CONFIG_PATH_SIZE, sizeof(char));
     get_conf_path(conf_path_buffer, MAX_CONFIG_PATH_SIZE);
 
-    struct conf_data configuration = {"JD_PATH"};
+    struct conf_data configuration = {
+        calloc(CONFIG_VALUE_BUFSIZE, sizeof(char))
+    };
+
+    enum return_value return_value = ERROR;
+
+    int config_read = read_conf_data(configuration.jd_path, CONFIG_VALUE_BUFSIZE, conf_path_buffer, "jd_path");
+
+    if (config_read == ERROR) {
+        return_value = config_read;
+        goto exit_jd;
+    };
 
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0 ) {
         print_help(argv[0]);
-        return SUCCESS;
-
-    } else if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
-        printf("%s\n", TAG);
-        return SUCCESS;
-
-    } else if (strcmp(argv[1], "ls") == 0) {
-        return jd_ls(argc -2, &argv[2]);
-
-    } else if (strcmp(argv[1], "cd") == 0) {
-        return jd_cd(argc -2, &argv[2]);
-
-    } else if (strcmp(argv[1], "config") == 0) {
-        return jd_config(argc - 2, &argv[2], &configuration);
-
-    } else {
-        print_help(argv[0]);
-        return ERROR;
+        return_value = SUCCESS;
+        goto exit_jd;
     }
+
+    if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
+        printf("%s\n", TAG);
+        return_value = SUCCESS;
+        goto exit_jd;
+    }
+
+    if (strcmp(argv[1], "ls") == 0) {
+        return_value = jd_ls(argc -2, &argv[2]);
+        goto exit_jd;
+    }
+
+    if (strcmp(argv[1], "cd") == 0) {
+        return_value = jd_cd(argc -2, &argv[2]);
+        goto exit_jd;
+    }
+
+    if (strcmp(argv[1], "config") == 0) {
+        return_value = jd_config(argc - 2, &argv[2], &configuration);
+        goto exit_jd;
+    }
+
+    print_help(argv[0]);
+    return_value = ERROR;
+
+    exit_jd:
+
+    free(conf_path_buffer);
+    free(configuration.jd_path);
+
+    return return_value;
 
 }

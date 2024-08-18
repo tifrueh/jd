@@ -4,7 +4,7 @@
 enum return_value {
     SUCCESS = 0,
     ERROR = 1,
-    CONFIG_ERROR = 2
+    NOT_FOUND = 2
 };
 
 #endif

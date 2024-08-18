@@ -9,6 +9,9 @@
 
 #define CONFIG_STUB "jd/jd.conf"
 #define MAX_CONFIG_PATH_SIZE 256
+#define CONFIG_LINE_BUFSIZE 512
+#define CONFIG_NAME_BUFSIZE 64
+#define CONFIG_VALUE_BUFSIZE 256
 
 struct conf_data {
     char* jd_path;
