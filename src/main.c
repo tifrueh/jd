@@ -45,7 +45,6 @@ int main(int argc, char* argv[]) {
 
     if (config_read == ERROR) {
         return_value = config_read;
-        fprintf(stderr, "%s", error_str);
         goto exit_jd;
     };
 
@@ -77,12 +76,15 @@ int main(int argc, char* argv[]) {
     }
 
     print_help(argv[0]);
-    return_value = ERROR;
 
     exit_jd:
 
     free(conf_path_buffer);
     free(configuration.jd_path);
+
+    if (return_value != SUCCESS && strcmp(error_str, "") != 0) {
+        fprintf(stderr, "%s", error_str);
+    }
 
     return return_value;
 
