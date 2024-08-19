@@ -2,6 +2,7 @@
 #define JDCONF_H
 
 #include <stdio.h>
+#include <unistd.h>
 
 #include "configuration.h"
 #include "retval.h"
