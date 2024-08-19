@@ -38,7 +38,7 @@ int parse_line(struct conf_pair* pair, size_t name_bufsize, size_t value_bufsize
         return ERROR;
     }
 
-    snprintf(pair->value, value_size + 1, "%s", equal_sign + 1);
+    snprintf(pair->value, value_size - 1, "%s", equal_sign + 1);
 
     return SUCCESS;
 
