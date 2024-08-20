@@ -2,7 +2,7 @@
 #define JDCONF_H
 
 #include <stdio.h>
-#include <unistd.h>
+#include <getopt.h>
 
 #include "configuration.h"
 #include "optparse.h"

@@ -9,6 +9,15 @@ enum actions {
     CONFIG_NULL
 } action = CONFIG_LIST;
 
+struct option longopts[] = {
+    { "help", no_argument, NULL, 'h' },
+    { "get", required_argument, NULL, 'g' },
+    { "list", no_argument, NULL, 'l' },
+    { "set", required_argument, NULL, 's' },
+    { "unset", required_argument, NULL, 'u' },
+    { NULL, 0, NULL, 0 }
+};
+
 void config_print_help(char argv_0[]) {
 
     char help_string[] =
@@ -87,7 +96,7 @@ int jd_config(int argc, char* argv[], const struct conf_data* configuration) {
 
     int optchar;
 
-    while((optchar = getopt(argc, argv, "hg:ls:u:")) != -1) {
+    while((optchar = getopt_long(argc, argv, "hg:ls:u:", longopts, NULL)) != -1) {
         enum optswitch_retval optswitch = config_optswitch(optchar, optarg);
 
         if (optswitch == OPT_FINAL) {
