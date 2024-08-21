@@ -66,7 +66,7 @@ int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* n
         int err_code = parse_line(&pair, CONFIG_NAME_BUFSIZE, CONFIG_VALUE_BUFSIZE, line_buffer);
 
         if (err_code != SUCCESS) {
-            snprintf(error_str, ERROR_STR_BUFSIZE, "%s:%i: malformed config line\n", path, linenum);
+            snprintf(error_str, ERROR_STR_BUFSIZE, "%s:%i: malformed config line", path, linenum);
             return_value = err_code;
             goto exit_read;
         }

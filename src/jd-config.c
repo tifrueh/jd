@@ -36,7 +36,7 @@ void config_print_help(char argv_0[]) {
 
 int config_set(char* name, char* value, char* path) {
     if (value == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "%s couldn't be set: empty value\n", name);
+        snprintf(error_str, ERROR_STR_BUFSIZE, "%s couldn't be set: empty value", name);
         return ERROR;
     }
 

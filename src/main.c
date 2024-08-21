@@ -88,7 +88,7 @@ int main(int argc, char* argv[]) {
     free(configuration.jd_path);
 
     if (return_value == ERROR && strcmp(error_str, "") != 0) {
-        fprintf(stderr, "%s", error_str);
+        fprintf(stderr, "%s\n", error_str);
     }
 
     return return_value;
