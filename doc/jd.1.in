@@ -20,6 +20,7 @@ jd \- universal johnny.decimal tool for UNIX-like operating systems
 .
 .SY jd
 .BR "\<command\> " ...
+.YS
 .
 .SH DESCRIPTION
 .
