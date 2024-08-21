@@ -32,15 +32,15 @@ int main(int argc, char* argv[]) {
         return ERROR;
     }
 
-    char* conf_path_buffer = calloc(MAX_CONFIG_PATH_SIZE, sizeof(char));
-    get_conf_path(conf_path_buffer, MAX_CONFIG_PATH_SIZE);
+    char* conf_path_buffer = calloc(CONFIG_PATH_BUFSIZE, sizeof(char));
+    get_conf_path(conf_path_buffer, CONFIG_PATH_BUFSIZE);
 
     struct conf_data configuration = {
-        calloc(MAX_CONFIG_PATH_SIZE, sizeof(char)),
+        calloc(CONFIG_PATH_BUFSIZE, sizeof(char)),
         calloc(CONFIG_VALUE_BUFSIZE, sizeof(char))
     };
 
-    snprintf(configuration.config_path, MAX_CONFIG_PATH_SIZE, "%s", conf_path_buffer);
+    snprintf(configuration.config_path, CONFIG_PATH_BUFSIZE, "%s", conf_path_buffer);
 
     free(conf_path_buffer);
 
