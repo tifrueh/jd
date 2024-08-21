@@ -192,4 +192,3 @@ int print_conf_data(const char* path) {
 
     return SUCCESS;
 }
-
