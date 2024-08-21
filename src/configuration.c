@@ -81,6 +81,8 @@ int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* n
     free(pair.name);
     free(pair.value);
 
+    fclose(confptr);
+
     return return_value;
 };
 
@@ -113,6 +115,11 @@ int print_conf_data(const char* path) {
 
         printf("%s=%s\n", pair.name, pair.value);
     }
+
+    free(pair.name);
+    free(pair.value);
+
+    fclose(confptr);
 
     return SUCCESS;
 }
