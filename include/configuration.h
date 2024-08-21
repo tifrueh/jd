@@ -23,6 +23,7 @@ int get_conf_path(char* path_buffer, size_t path_bufsize);
 
 int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* name);
 int write_conf_data(const char* name, const char* value, const char* path, const char* swappath);
+int delete_conf_data(const char* name, const char* path, const char* swappath);
 int print_conf_data(const char* path);
 
 

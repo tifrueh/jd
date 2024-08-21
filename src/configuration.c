@@ -160,6 +160,57 @@ int write_conf_data(const char* name, const char* value, const char* path, const
     return retval;
 }
 
+int delete_conf_data(const char* name, const char* path, const char* swappath) {
+    FILE* confptr = fopen(path, "r");
+    FILE* swapptr = fopen(swappath, "w");
+
+    char line_buffer[CONFIG_LINE_BUFSIZE];
+
+    struct conf_pair pair = {
+        calloc(CONFIG_NAME_BUFSIZE, sizeof(char)),
+        calloc(CONFIG_VALUE_BUFSIZE, sizeof(char))
+    };
+
+    enum return_value retval = NOT_FOUND;
+    int line = 0;
+
+    while (fgets(line_buffer, CONFIG_LINE_BUFSIZE, confptr)) {
+        int err_code = parse_line(&pair, CONFIG_NAME_BUFSIZE, CONFIG_VALUE_BUFSIZE, line_buffer);
+
+        if (err_code != SUCCESS) {
+            snprintf(error_str, ERROR_STR_BUFSIZE, "%s:%i: malformed config line", path, line);
+            retval = err_code;
+            goto exit_delete;
+        }
+
+        if (strcmp(pair.name, name) != 0) {
+            fprintf(swapptr, "%s", line_buffer);
+        } else {
+            retval = SUCCESS;
+        }
+
+        line++;
+    }
+
+    int rename_retval = rename(swappath, path);
+
+    if (rename_retval != 0) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to write new config %s: %s", path, strerror(errno));
+        retval = ERROR;
+    }
+
+    exit_delete:
+
+    free(pair.name);
+    free(pair.value);
+
+    fclose(swapptr);
+    fclose(confptr);
+
+    return retval;
+
+};
+
 int print_conf_data(const char* path) {
     FILE* confptr = fopen(path, "r");
 

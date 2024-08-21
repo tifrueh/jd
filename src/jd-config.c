@@ -62,6 +62,13 @@ int config_get(char* name, char* path) {
 
 }
 
+int config_unset(char* name, char* path) {
+    char swappath[MAX_CONFIG_PATH_SIZE+1];
+    snprintf(swappath, MAX_CONFIG_PATH_SIZE+1, "%s~", path);
+
+    return delete_conf_data(name, path, swappath);
+}
+
 int config_optswitch(int optchar, char* optarg) {
     switch (optchar) {
         case 'h':
@@ -122,8 +129,7 @@ int jd_config(int argc, char* argv[], const struct conf_data* configuration) {
             return config_set(optarg, argv[optind], configuration->config_path);
 
         case CONFIG_UNSET:
-            printf("unsetting config %s\n", optarg);
-            return SUCCESS;
+            return config_unset(optarg, configuration->config_path);
 
         case CONFIG_NULL:
             return ERROR;
