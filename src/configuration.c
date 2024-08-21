@@ -115,8 +115,19 @@ int write_conf_data(const char* name, const char* value, const char* path, const
     };
 
     enum return_value retval = SUCCESS;
-    int line = 0;
 
+    if (confptr == NULL && swapptr != NULL) {
+        fprintf(swapptr, "%s", new_conf_line);
+        goto exit_write;
+    }
+
+    if (swapptr == NULL) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "could not update config at %s (swap %s): %s", path, swappath, strerror(errno));
+        retval = ERROR;
+        goto exit_write;
+    }
+
+    int line = 0;
     int old_value_found = 0;
 
     while (fgets(line_buffer, CONFIG_LINE_BUFSIZE, confptr)) {
@@ -142,6 +153,9 @@ int write_conf_data(const char* name, const char* value, const char* path, const
         fprintf(swapptr, "%s", new_conf_line);
     }
 
+    exit_write:
+    {}
+
     int rename_retval = rename(swappath, path);
 
     if (rename_retval != 0) {
@@ -149,13 +163,16 @@ int write_conf_data(const char* name, const char* value, const char* path, const
         retval = ERROR;
     }
 
-    exit_write:
-
     free(pair.name);
     free(pair.value);
 
-    fclose(swapptr);
-    fclose(confptr);
+    if (swapptr != NULL) {
+        fclose(swapptr);
+    }
+
+    if (confptr != NULL) {
+        fclose(confptr);
+    }
 
     return retval;
 }
@@ -173,6 +190,16 @@ int delete_conf_data(const char* name, const char* path, const char* swappath) {
 
     enum return_value retval = NOT_FOUND;
     int line = 0;
+
+    if (confptr == NULL && swapptr != NULL) {
+        goto exit_delete;
+    }
+
+    if (swapptr == NULL) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "could not update config at %s (swap %s): %s", path, swappath, strerror(errno));
+        retval = ERROR;
+        goto exit_delete;
+    }
 
     while (fgets(line_buffer, CONFIG_LINE_BUFSIZE, confptr)) {
         int err_code = parse_line(&pair, CONFIG_NAME_BUFSIZE, CONFIG_VALUE_BUFSIZE, line_buffer);
@@ -192,6 +219,9 @@ int delete_conf_data(const char* name, const char* path, const char* swappath) {
         line++;
     }
 
+    exit_delete:
+    {}
+
     int rename_retval = rename(swappath, path);
 
     if (rename_retval != 0) {
@@ -199,13 +229,16 @@ int delete_conf_data(const char* name, const char* path, const char* swappath) {
         retval = ERROR;
     }
 
-    exit_delete:
-
     free(pair.name);
     free(pair.value);
 
-    fclose(swapptr);
-    fclose(confptr);
+    if (swapptr != NULL) {
+        fclose(swapptr);
+    }
+
+    if (confptr != NULL) {
+        fclose(confptr);
+    }
 
     return retval;
 
