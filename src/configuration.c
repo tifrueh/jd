@@ -67,7 +67,8 @@ int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* n
 
         if (err_code != SUCCESS) {
             snprintf(error_str, ERROR_STR_BUFSIZE, "%s:%i: malformed config line\n", path, linenum);
-            return err_code;
+            return_value = err_code;
+            goto exit_read;
         }
 
         if (strcmp(pair.name, name) == 0) {
@@ -77,6 +78,8 @@ int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* n
 
         linenum++;
     }
+
+    exit_read:
 
     free(pair.name);
     free(pair.value);
