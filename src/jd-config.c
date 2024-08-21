@@ -40,9 +40,10 @@ int config_set(char* name, char* value, char* path) {
         return ERROR;
     }
 
-    printf("setting %s to %s\n", name, value);
+    char swappath[MAX_CONFIG_PATH_SIZE+1];
+    snprintf(swappath, MAX_CONFIG_PATH_SIZE+1, "%s~", path);
 
-    return SUCCESS;
+    return write_conf_data(name, value, path, swappath);
 };
 
 int config_get(char* name, char* path) {

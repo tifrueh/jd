@@ -89,9 +89,75 @@ int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* n
     return return_value;
 };
 
-int write_conf_data(const char* name, const char* value, const char* path) {
-    printf("writing %s = %s to %s\n", name, value, path);
-    return SUCCESS;
+int write_conf_data(const char* name, const char* value, const char* path, const char* swappath) {
+
+    if (strlen(name) >= CONFIG_NAME_BUFSIZE) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "configuration name %s too long", name);
+        return ERROR;
+    }
+
+    if (strlen(value) >= CONFIG_VALUE_BUFSIZE) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "configuration value %s too long", value);
+        return ERROR;
+    }
+
+    FILE* confptr = fopen(path, "r");
+    FILE* swapptr = fopen(swappath, "w");
+
+    char new_conf_line[CONFIG_LINE_BUFSIZE];
+    snprintf(new_conf_line, CONFIG_LINE_BUFSIZE, "%s=%s\n", name, value);
+
+    char line_buffer[CONFIG_LINE_BUFSIZE];
+
+    struct conf_pair pair = {
+        calloc(CONFIG_NAME_BUFSIZE, sizeof(char)),
+        calloc(CONFIG_VALUE_BUFSIZE, sizeof(char))
+    };
+
+    enum return_value retval = SUCCESS;
+    int line = 0;
+
+    int old_value_found = 0;
+
+    while (fgets(line_buffer, CONFIG_LINE_BUFSIZE, confptr)) {
+        int err_code = parse_line(&pair, CONFIG_NAME_BUFSIZE, CONFIG_VALUE_BUFSIZE, line_buffer);
+
+        if (err_code != SUCCESS) {
+            snprintf(error_str, ERROR_STR_BUFSIZE, "%s:%i: malformed config line", path, line);
+            retval = err_code;
+            goto exit_write;
+        }
+
+        if (strcmp(pair.name, name) == 0) {
+            old_value_found = 1;
+            fprintf(swapptr, "%s", new_conf_line);
+        } else {
+            fprintf(swapptr, "%s", line_buffer);
+        }
+
+        line++;
+    }
+
+    if (old_value_found == 0) {
+        fprintf(swapptr, "%s", new_conf_line);
+    }
+
+    int rename_retval = rename(swappath, path);
+
+    if (rename_retval != 0) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to write new config %s: %s", path, strerror(errno));
+        retval = ERROR;
+    }
+
+    exit_write:
+
+    free(pair.name);
+    free(pair.value);
+
+    fclose(swapptr);
+    fclose(confptr);
+
+    return retval;
 }
 
 int print_conf_data(const char* path) {
