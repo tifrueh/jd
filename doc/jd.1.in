@@ -1,4 +1,4 @@
-.TH JD 1 2024-08-17 "jd @tag@"
+.TH JD 1 2024-08-21 "jd @tag@"
 .
 .SH NAME
 .
@@ -7,15 +7,9 @@ jd \- universal johnny.decimal tool for UNIX-like operating systems
 .SH SYNOPSIS
 .
 .SY jd
-.B \-h
+.RB { " \-h " | " \-\-help " }
 .SY jd
-.B \-\-help
-.YS
-.
-.SY jd
-.B \-v
-.SY jd
-.B \-\-version
+.RB { " \-v " | " \-\-version " }
 .YS
 .
 .SY jd
