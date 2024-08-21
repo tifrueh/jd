@@ -1,0 +1,34 @@
+.TH JD.CONF 5 2024-08-21 "jd @tag@"
+.
+.SH NAME
+.
+jd.conf \- configuration file for the jd utility
+.
+.SH DESCRIPTION
+.
+.P
+Lorem ipsum odor amet, consectetuer adipiscing elit. Nec fames etiam iaculis
+tempor habitasse elit mi vestibulum. Sed fringilla curae nulla parturient
+volutpat sed venenatis sociosqu. Augue duis orci viverra adipiscing dolor
+volutpat enim. Phasellus imperdiet magnis scelerisque sed sapien.
+.
+.P
+Justo ligula sapien metus dapibus suscipit proin varius. Nullam eget enim
+gravida conubia litora donec volutpat bibendum. Consectetur non inceptos
+volutpat himenaeos cras auctor. Nibh pharetra parturient nulla penatibus
+sociosqu facilisis.
+.
+.P
+Nullam mi montes; litora est suspendisse lorem. Nibh elit accumsan; rhoncus
+quisque sodales lobortis. Orci ultricies curae felis luctus interdum arcu.
+.
+.SH OPTIONS
+.
+.TP
+.B jd_path
+The file system path to the johnny.decimal system.
+.
+.SH SEE ALSO
+.
+.nh
+.BR jd "(1), " jd-cd "(1), " jd-config "(1), " jd-ls "(1)"
