@@ -1,0 +1,83 @@
+.TH JD-CONFIG 1 2024-08-21 "jd @tag@"
+.
+.SH NAME
+.
+jd\-config \- get and set configuration options of the jd utility
+.
+.SH SYNOPSIS
+.
+.SY jd config
+.RB { " \-h " | " \-\-help " }
+.YS
+.
+.SY jd config
+.RB { " \-g " | " \-\-get \fIoption " }
+.SY jd config
+.RB { " \-l " | " \-\-list " }
+.SY jd config
+.RB { " \-s " | " \-\-set \fIoption " } " \fIvalue"
+.SY jd config
+.RB { " \-u " | " \-\-unset \fIoption " }
+.YS
+.
+.SH DESCRIPTION
+.
+.P
+Lorem ipsum odor amet, consectetuer adipiscing elit. Nec fames etiam iaculis
+tempor habitasse elit mi vestibulum. Sed fringilla curae nulla parturient
+volutpat sed venenatis sociosqu. Augue duis orci viverra adipiscing dolor
+volutpat enim. Phasellus imperdiet magnis scelerisque sed sapien.
+.
+.P
+Justo ligula sapien metus dapibus suscipit proin varius. Nullam eget enim
+gravida conubia litora donec volutpat bibendum. Consectetur non inceptos
+volutpat himenaeos cras auctor. Nibh pharetra parturient nulla penatibus
+sociosqu facilisis.
+.
+.P
+Nullam mi montes; litora est suspendisse lorem. Nibh elit accumsan; rhoncus
+quisque sodales lobortis. Orci ultricies curae felis luctus interdum arcu.
+.
+.SH OPTIONS
+.
+.TP
+.B \-h, \-\-help
+Display a short help message.
+.
+.TP
+.BI "\-g, \-\-get " option
+Display the value of a configuration option.
+.
+.TP
+.B \-l, \-\-list
+Display the values of all options set in the config file.
+.
+.TP
+.BI "\-s, \-\-set " "option value"
+Set a configuration option to a value.
+.
+.TP
+.BI "\-u, \-\-unset " option
+Unset a configuration option.
+.
+.SH EXIT STATUS
+.
+The \fBjd\fR utility exits > 0 if an error occurs, 0 otherwise.
+.
+.SH ENVIRONMENT
+.
+.TP
+.I XDG_CONFIG_HOME
+Path to the user-specific configuration directory. Defaults to
+\fI\(ti/.config\fR. See \fIFILES\fR.
+.
+.SH FILES
+.
+.TP
+.I \(ti/.config/jd/jd.conf
+This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
+.
+.SH SEE ALSO
+.
+.nh
+.BR jd "(1), " jd-cd "(1), " jd-ls "(1), " jd.conf "(5)"
