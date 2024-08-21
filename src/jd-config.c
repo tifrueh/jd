@@ -127,5 +127,8 @@ int jd_config(int argc, char* argv[], const struct conf_data* configuration) {
 
         case CONFIG_NULL:
             return ERROR;
+
+        default:
+            return print_conf_data(configuration->config_path);
     }
 }
