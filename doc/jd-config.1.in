@@ -6,17 +6,17 @@ jd\-config \- get and set configuration options of the jd utility
 .
 .SH SYNOPSIS
 .
-.SY jd config
+.SY "jd config"
 .RB { " \-h " | " \-\-help " }
 .YS
 .
-.SY jd config
+.SY "jd config"
 .RB { " \-g " | " \-\-get \fIoption " }
-.SY jd config
+.SY "jd config"
 .RB { " \-l " | " \-\-list " }
-.SY jd config
+.SY "jd config"
 .RB { " \-s " | " \-\-set \fIoption " } " \fIvalue"
-.SY jd config
+.SY "jd config"
 .RB { " \-u " | " \-\-unset \fIoption " }
 .YS
 .
