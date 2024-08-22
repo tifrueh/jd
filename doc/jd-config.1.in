@@ -40,8 +40,8 @@ please refer to \fBjd.conf\fR(5).
 .P
 Note: Configuration option names can only contain up to 63 bytes. Configuration
 values, on the other hand, can contain up to 255 bytes. Beware these limits,
-especially if there are non-ASCII characters in either, as non-ASCII characters
-may take up more than one byte.
+especially if there are non-ASCII characters in either name or value, as
+non-ASCII characters may take up more than one byte.
 .
 .SH OPTIONS
 .
