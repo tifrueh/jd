@@ -79,7 +79,7 @@ Path to the user-specific configuration directory. Defaults to
 .SH FILES
 .
 .TP
-.I \(ti/.config/jd/jd.conf
+.I $XDG_CONFIG_HOME/jd/jd.conf
 This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
 .
 .SH SEE ALSO
