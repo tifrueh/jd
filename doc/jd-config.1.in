@@ -23,20 +23,25 @@ jd\-config \- get and set configuration options of the jd utility
 .SH DESCRIPTION
 .
 .P
-Lorem ipsum odor amet, consectetuer adipiscing elit. Nec fames etiam iaculis
-tempor habitasse elit mi vestibulum. Sed fringilla curae nulla parturient
-volutpat sed venenatis sociosqu. Augue duis orci viverra adipiscing dolor
-volutpat enim. Phasellus imperdiet magnis scelerisque sed sapien.
-.
+The \fBjd-config\fR command is the preferred way to get, set and unset
+configuration options of the \fBjd\fR utility. It is, of course, also possible
+to set configuration options by editing the configuration file directly (see
+\fIFILES\fR), but using \fBjd-config\fR is way less prone to errors, so it is
+strongly recommended that you use it.
 .P
-Justo ligula sapien metus dapibus suscipit proin varius. Nullam eget enim
-gravida conubia litora donec volutpat bibendum. Consectetur non inceptos
-volutpat himenaeos cras auctor. Nibh pharetra parturient nulla penatibus
-sociosqu facilisis.
-.
+If no arguments are specified, \fBjd-config\fR will simply list all
+configuration options and their values, behaving essentially as if \fB--list\fR
+were specified.
 .P
-Nullam mi montes; litora est suspendisse lorem. Nibh elit accumsan; rhoncus
-quisque sodales lobortis. Orci ultricies curae felis luctus interdum arcu.
+It is also worth mentioning that \fBjd-config\fR will allow you to set any
+configuration option, even if the \fBjd\fR utility doesn't do anything with it.
+To see which configuration options are actually read and used by \fBjd\fR,
+please refer to \fBjd.conf\fR(5).
+.P
+Note: Configuration option names can only contain up to 63 bytes. Configuration
+values, on the other hand, can contain up to 255 bytes. Beware these limits,
+especially if there are non-ASCII characters in either, as non-ASCII characters
+may take up more than one byte.
 .
 .SH OPTIONS
 .
@@ -54,7 +59,9 @@ Display the values of all options set in the config file.
 .
 .TP
 .BI "\-s, \-\-set " "option value"
-Set a configuration option to a value.
+Set a configuration option to a value. Please note that this will create the
+configuration file (see \fIFILES\fR) and all its parent directories, if it
+doesn't exist yet.
 .
 .TP
 .BI "\-u, \-\-unset " option
@@ -74,7 +81,7 @@ Path to the user-specific configuration directory. Defaults to
 .SH FILES
 .
 .TP
-.I \(ti/.config/jd/jd.conf
+.I $XDG_CONFIG_HOME/.config/jd/jd.conf
 This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
 .
 .SH SEE ALSO
