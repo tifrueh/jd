@@ -52,7 +52,7 @@ Change to a directory of the johnny.decimal system.
 .
 .TP
 .BR jd-config (1)
-Configure the \fBjd\fR utility.
+Get and set configuration options of the \fBjd\fR utility.
 .
 .TP
 .BR jd-ls (1)
