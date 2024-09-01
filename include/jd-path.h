@@ -8,6 +8,6 @@
 #include "path.h"
 #include "retval.h"
 
-int jd_cd(int argc, char* argv[], const struct conf_data* configuration);
+int jd_path(int argc, char* argv[], const struct conf_data* configuration);
 
 #endif

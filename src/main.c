@@ -2,7 +2,7 @@
 #include <string.h>
 
 #include "configuration.h"
-#include "jd-cd.h"
+#include "jd-path.h"
 #include "jd-config.h"
 #include "jd-ls.h"
 #include "mesonconf.h"
@@ -16,7 +16,7 @@ void print_help(char argv_0[]) {
         "  %1$s <command> ...\n"
         "\n"
         "<command> must be one of the following:\n"
-        "  cd        Change to a directory of the jd system\n"
+        "  path      Display the path to a directory of the jd system\n"
         "  config    Configure the jd utility\n"
         "  ls        List directories of the jd system\n"
         "\n"
@@ -76,8 +76,8 @@ int main(int argc, char* argv[]) {
         goto exit_jd;
     }
 
-    if (strcmp(argv[1], "cd") == 0) {
-        return_value = jd_cd(argc - 1, &argv[1], &configuration);
+    if (strcmp(argv[1], "path") == 0) {
+        return_value = jd_path(argc - 1, &argv[1], &configuration);
         goto exit_jd;
     }
 

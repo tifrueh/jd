@@ -47,8 +47,8 @@ Display version information.
 .SS JD COMMANDS
 .
 .TP
-.BR jd-cd (1)
-Change to a directory of the johnny.decimal system.
+.BR jd-path (1)
+Display the path to a directory of the johnny.decimal system.
 .
 .TP
 .BR jd-config (1)
@@ -85,4 +85,4 @@ This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
 .SH SEE ALSO
 .
 .nh
-.BR jd-cd "(1), " jd-config "(1), " jd-ls "(1), " jd.conf "(5)"
+.BR jd-path "(1), " jd-config "(1), " jd-ls "(1), " jd.conf "(5)"

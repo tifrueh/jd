@@ -1,6 +1,6 @@
-#include "jd-cd.h"
+#include "jd-path.h"
 
-void cd_print_help(char argv_0[]) {
+void path_print_help(char argv_0[]) {
 
   char help_string[] =
       "Usage:\n"
@@ -16,15 +16,15 @@ void cd_print_help(char argv_0[]) {
   printf(help_string, argv_0);
 }
 
-int jd_cd(int argc, char* argv[], const struct conf_data* configuration) {
+int jd_path(int argc, char* argv[], const struct conf_data* configuration) {
 
     if (argc < 2) {
-        cd_print_help(argv[0]);
+        path_print_help(argv[0]);
         return ERROR;
     }
 
     if (strcmp(argv[1], "-h") == 0) {
-        cd_print_help(argv[0]);
+        path_print_help(argv[0]);
         return SUCCESS;
     }
 
@@ -39,7 +39,7 @@ int jd_cd(int argc, char* argv[], const struct conf_data* configuration) {
     int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_path);
 
     if (retval == SUCCESS) {
-        printf("cd: %s\n", out_path);
+        printf("%s\n", out_path);
     }
 
     free(out_path);
