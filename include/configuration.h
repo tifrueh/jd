@@ -18,6 +18,7 @@
 struct conf_data {
     char* config_path;
     char* jd_path;
+    char* show_hidden;
 };
 
 int get_conf_path(char* path_buffer, size_t path_bufsize);

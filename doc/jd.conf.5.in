@@ -41,6 +41,13 @@ used by \fBjd\fR are listed under \fIOPTIONS\fR.
 .B jd_path
 The file system path to the johnny.decimal system.
 .
+.TP
+.B show_hidden
+Set to "true" to show hidden files when using \fBjd-ls\fR(1) or to "false" to
+hide them.
+.IP
+Default: false
+.
 .SH SEE ALSO
 .
 .nh

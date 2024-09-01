@@ -28,7 +28,7 @@ int print_direntry(struct dirent* direntry, int show_hidden) {
     return printf("%s\n", direntry->d_name);
 }
 
-int list_dir(const char* directory_path) {
+int list_dir(const char* directory_path, int show_hidden) {
 
     struct dirent** namelist;
     int scan = scandir(directory_path, &namelist, NULL, alphasort);
@@ -39,7 +39,7 @@ int list_dir(const char* directory_path) {
     }
 
     for (int i = 0; i < scan; i++) {
-        print_direntry(namelist[i], 0);
+        print_direntry(namelist[i], show_hidden);
         free(namelist[i]);
     }
     free(namelist);
@@ -49,8 +49,10 @@ int list_dir(const char* directory_path) {
 
 int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
 
+    int show_hidden = (strcmp(configuration->show_hidden, "true") == 0) ? (1) : (0);
+
     if (argc < 2) {
-        return list_dir(configuration->jd_path);
+        return list_dir(configuration->jd_path, show_hidden);
     }
 
     if (strcmp(argv[1], "-h") == 0) {
@@ -69,7 +71,7 @@ int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
     int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_path);
 
     if (retval == SUCCESS) {
-        retval = list_dir(out_path);
+        retval = list_dir(out_path, show_hidden);
     }
 
     free(out_path);

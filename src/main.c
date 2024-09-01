@@ -37,6 +37,7 @@ int main(int argc, char* argv[]) {
 
     struct conf_data configuration = {
         calloc(CONFIG_PATH_BUFSIZE, sizeof(char)),
+        calloc(CONFIG_VALUE_BUFSIZE, sizeof(char)),
         calloc(CONFIG_VALUE_BUFSIZE, sizeof(char))
     };
 
@@ -51,6 +52,12 @@ int main(int argc, char* argv[]) {
     if (jd_path_read != SUCCESS) {
         configuration.jd_path = NULL;
     };
+
+    int show_hidden_read = read_conf_data(configuration.show_hidden, CONFIG_VALUE_BUFSIZE, configuration.config_path, "show_hidden");
+
+    if (show_hidden_read != SUCCESS) {
+        snprintf(configuration.show_hidden, CONFIG_VALUE_BUFSIZE, "%s", "true");
+    }
 
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0 ) {
         print_help(argv[0]);
