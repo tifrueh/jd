@@ -1,0 +1,67 @@
+.TH JD-LS 1 2024-09-02 "jd @tag@"
+.
+.SH NAME
+.
+jd-ls \- list directories of the johnny.decimal system
+.
+.SH SYNOPSIS
+.
+.SY jd-ls
+.RB { " \-h " | " \-\-help " }
+.YS
+.SY jd-ls
+.RI [ " <jd_path_descriptor> " ]
+.YS
+.
+.SH DESCRIPTION
+.
+.P
+The \fBjd-ls\fR command can be used to list the contents of a directory in the
+johnny.decimal system. It prints all files and subdirectories of said
+johnny.decimal directory to stdout, omitting files and directories beginning
+with a period (.). This behaviour can, however, be customised. See
+\fBjd.conf\fR(5).
+.
+.SH OPTIONS
+.
+.TP
+.B \-h, \-\-help
+Display a short help message.
+.
+.TP
+.I <jd_path_descriptor>
+List the contents of the directory with a specific johnny.decimal path
+descriptor, i. e. either an area, category or id. To list the contents of an
+area, specify the common first digit of its categories.
+.IP
+If this argument is omitted, the top-level johnny.decimal directory containing
+the areas will be listed.
+.
+.SH EXIT STATUS
+.
+The \fBjd\fR utility exits > 0 if an error occurs, 0 otherwise.
+.
+.SH ENVIRONMENT
+.
+.TP
+.I JD_PATH
+This environment variable can be used to override the configured file system
+path to the johnny.decimal system. Simply set it to the desired path. Tilde
+expansion is supported, \fI\(ti/johnny\fR for example would be an acceptable
+value.
+.
+.TP
+.I XDG_CONFIG_HOME
+Path to the user-specific configuration directory. Defaults to
+\fI\(ti/.config\fR. See \fIFILES\fR.
+.
+.SH FILES
+.
+.TP
+.I $XDG_CONFIG_HOME/jd/jd.conf
+This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
+.
+.SH SEE ALSO
+.
+.nh
+.BR jd-path "(1), " jd-config "(1), " jd-ls "(1), " jd.conf "(5)"
