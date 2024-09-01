@@ -46,11 +46,10 @@ int main(int argc, char* argv[]) {
 
     enum return_value return_value = ERROR;
 
-    int config_read = read_conf_data(configuration.jd_path, CONFIG_VALUE_BUFSIZE, configuration.config_path, "jd_path");
+    int jd_path_read = read_conf_data(configuration.jd_path, CONFIG_VALUE_BUFSIZE, configuration.config_path, "jd_path");
 
-    if (config_read == ERROR) {
-        return_value = config_read;
-        goto exit_jd;
+    if (jd_path_read != SUCCESS) {
+        configuration.jd_path = NULL;
     };
 
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0 ) {
@@ -71,7 +70,7 @@ int main(int argc, char* argv[]) {
     }
 
     if (strcmp(argv[1], "cd") == 0) {
-        return_value = jd_cd(argc - 1, &argv[1]);
+        return_value = jd_cd(argc - 1, &argv[1], &configuration);
         goto exit_jd;
     }
 

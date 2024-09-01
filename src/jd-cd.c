@@ -16,7 +16,7 @@ void cd_print_help(char argv_0[]) {
   printf(help_string, argv_0);
 }
 
-int jd_cd(int argc, char* argv[]) {
+int jd_cd(int argc, char* argv[], const struct conf_data* configuration) {
 
     if (argc < 2) {
         cd_print_help(argv[0]);
@@ -30,7 +30,19 @@ int jd_cd(int argc, char* argv[]) {
 
     struct jd_path path = parse_jd_path(argv[1]);
 
-    printf("jd path components\n------------------\n\narea: %i\ncategory: %i\nid: %i\n", path.area, path.category, path.id);
+    char* out_path = calloc(MAX_PATHLEN, sizeof(char));
 
-    return SUCCESS;
+    if (out_path == NULL) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to allocate memory for the path buffer: %s", strerror(errno));
+    }
+
+    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_path);
+
+    if (retval == SUCCESS) {
+        printf("cd: %s\n", out_path);
+    }
+
+    free(out_path);
+
+    return retval;
 }
