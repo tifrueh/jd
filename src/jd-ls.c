@@ -18,7 +18,19 @@ void ls_print_help(char argv_0[]) {
 
 int jd_ls(int argc, char* argv[]) {
 
-    ls_print_help(argv[0]);
+    if (argc < 2) {
+        ls_print_help(argv[0]);
+        return ERROR;
+    }
+
+    if (strcmp(argv[1], "-h") == 0) {
+        ls_print_help(argv[0]);
+        return SUCCESS;
+    }
+
+    struct jd_path path = parse_jd_path(argv[1]);
+
+    printf("jd path components\n------------------\n\narea: %i\ncategory: %i\nid: %i\n", path.area, path.category, path.id);
 
     return SUCCESS;
 }

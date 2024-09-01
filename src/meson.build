@@ -4,5 +4,6 @@ src += files(
   'jd-config.c',
   'jd-ls.c',
   'main.c',
+  'path.c',
   'retval.c'
 )
