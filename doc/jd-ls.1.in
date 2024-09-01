@@ -17,10 +17,9 @@ jd-ls \- list directories of the johnny.decimal system
 .
 .P
 The \fBjd-ls\fR command can be used to list the contents of a directory in the
-johnny.decimal system. It prints all files and subdirectories of said
-johnny.decimal directory to stdout, omitting files and directories beginning
-with a period (.). This behaviour can, however, be customised. See
-\fBjd.conf\fR(5).
+johnny.decimal system. It prints all files and subdirectories of said directory
+to stdout, omitting files and directories beginning with a period (.). This
+behaviour can, however, be customised. See \fBjd.conf\fR(5).
 .
 .SH OPTIONS
 .
