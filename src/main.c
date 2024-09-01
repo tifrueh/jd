@@ -65,7 +65,7 @@ int main(int argc, char* argv[]) {
     }
 
     if (strcmp(argv[1], "ls") == 0) {
-        return_value = jd_ls(argc - 1, &argv[1]);
+        return_value = jd_ls(argc - 1, &argv[1], &configuration);
         goto exit_jd;
     }
 

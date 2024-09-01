@@ -16,11 +16,41 @@ void ls_print_help(char argv_0[]) {
   printf(help_string, argv_0);
 }
 
-int jd_ls(int argc, char* argv[]) {
+int print_direntry(struct dirent* direntry, int show_hidden) {
+    if (direntry->d_name[0] == '.' && show_hidden == 0) {
+        return SUCCESS;
+    }
+
+    if (direntry->d_type == DT_DIR) {
+        return printf("%s/\n", direntry->d_name);
+    }
+
+    return printf("%s\n", direntry->d_name);
+}
+
+int list_dir(const char* directory_path) {
+
+    struct dirent** namelist;
+    int scan = scandir(directory_path, &namelist, NULL, alphasort);
+
+    if (scan == -1) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to open directory %s: %s", directory_path, strerror(errno));
+        return ERROR;
+    }
+
+    for (int i = 0; i < scan; i++) {
+        print_direntry(namelist[i], 0);
+        free(namelist[i]);
+    }
+    free(namelist);
+
+    return SUCCESS;
+}
+
+int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
 
     if (argc < 2) {
-        ls_print_help(argv[0]);
-        return ERROR;
+        return list_dir(configuration->jd_path);
     }
 
     if (strcmp(argv[1], "-h") == 0) {
@@ -30,7 +60,19 @@ int jd_ls(int argc, char* argv[]) {
 
     struct jd_path path = parse_jd_path(argv[1]);
 
-    printf("jd path components\n------------------\n\narea: %i\ncategory: %i\nid: %i\n", path.area, path.category, path.id);
+    char* out_path = calloc(MAX_PATHLEN, sizeof(char));
 
-    return SUCCESS;
+    if (out_path == NULL) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to allocate memory for the path buffer: %s", strerror(errno));
+    }
+
+    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_path);
+
+    if (retval == SUCCESS) {
+        retval = list_dir(out_path);
+    }
+
+    free(out_path);
+
+    return retval;
 }
