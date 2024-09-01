@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -47,11 +48,19 @@ int main(int argc, char* argv[]) {
 
     enum return_value return_value = ERROR;
 
-    int jd_path_read = read_conf_data(configuration.jd_path, CONFIG_VALUE_BUFSIZE, configuration.config_path, "jd_path");
+    char* jd_path_env = getenv("JD_PATH");
 
-    if (jd_path_read != SUCCESS) {
-        configuration.jd_path = NULL;
-    };
+    if (jd_path_env == NULL) {
+
+        int jd_path_read = read_conf_data(configuration.jd_path, CONFIG_VALUE_BUFSIZE, configuration.config_path, "jd_path");
+
+        if (jd_path_read != SUCCESS) {
+            configuration.jd_path = NULL;
+        };
+
+    } else {
+        snprintf(configuration.jd_path, CONFIG_VALUE_BUFSIZE, "%s", jd_path_env);
+    }
 
     int show_hidden_read = read_conf_data(configuration.show_hidden, CONFIG_VALUE_BUFSIZE, configuration.config_path, "show_hidden");
 
