@@ -51,4 +51,4 @@ Default: false
 .SH SEE ALSO
 .
 .nh
-.BR jd "(1), " jd-path "(1), " jd-config "(1), " jd-ls "(1)"
+.BR jd "(1), " jd-config "(1), " jd-ls "(1), " jd-path "(1)"

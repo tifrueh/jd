@@ -83,4 +83,4 @@ This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
 .SH SEE ALSO
 .
 .nh
-.BR jd-path "(1), " jd-config "(1), " jd-ls "(1), " jd.conf "(5)"
+.BR jd-config "(1), " jd-ls "(1), " jd-path "(1), " jd.conf "(5)"
