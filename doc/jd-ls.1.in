@@ -19,7 +19,8 @@ jd-ls \- list directories of the johnny.decimal system
 The \fBjd-ls\fP command can be used to list the contents of a directory in the
 johnny.decimal system. It prints all files and subdirectories of said directory
 to stdout, omitting files and directories beginning with a period (.). This
-behaviour can, however, be customised. See \fBjd.conf\fP(5).
+behaviour can, however, be customised. See
+.BR jd.conf (5).
 .
 .SH OPTIONS
 .
@@ -56,7 +57,8 @@ Path to the user-specific configuration directory. Defaults to
 .
 .TP
 .I $XDG_CONFIG_HOME/jd/jd.conf
-This is the main \fBjd\fP configuration file. See \fBjd.conf\fP(5).
+This is the main \fBjd\fP configuration file. See
+.BR jd.conf (5).
 .
 .SH EXAMPLES
 .
@@ -102,4 +104,7 @@ Policy document.pdf
 .SH SEE ALSO
 .
 .nh
-.BR jd "(1), " jd-config "(1), " jd-path "(1), " jd.conf "(5)"
+.BR jd (1),
+.BR jd-config (1),
+.BR jd-path (1),
+.BR jd.conf (5)

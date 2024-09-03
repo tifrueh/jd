@@ -9,7 +9,9 @@ jd.conf \- configuration file for the jd utility
 .P
 The \fBjd\fP utility can be customised using this configuration file, located at
 \fI$XDG_CONFIG_HOME/jd/jd.conf\fP. It is, however, not recommended to edit this
-file directly, as using \fBjd-conf\fP(1) is much less prone to errors.
+file directly, as using
+.BR jd-conf (1)
+is much less prone to errors.
 .TP
 If you really want to edit \fIjd.conf\fP directly, the syntax is as follows:
 .IP
@@ -43,12 +45,16 @@ The file system path to the johnny.decimal system.
 .
 .TP
 .B show_hidden
-Set to "true" to show hidden files when using \fBjd-ls\fP(1) or to "false" to
-hide them.
+Set to "true" to show hidden files when using
+.BR jd-ls (1)
+or to "false" to hide them.
 .IP
 Default: false
 .
 .SH SEE ALSO
 .
 .nh
-.BR jd "(1), " jd-config "(1), " jd-ls "(1), " jd-path "(1)"
+.BR jd (1),
+.BR jd-config (1),
+.BR jd-ls (1),
+.BR jd-path (1)

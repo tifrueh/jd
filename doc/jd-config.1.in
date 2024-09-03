@@ -36,7 +36,8 @@ were specified.
 It is also worth mentioning that \fBjd-config\fP will allow you to set any
 configuration option, even if the \fBjd\fP utility doesn't do anything with it.
 To see which configuration options are actually read and used by \fBjd\fP,
-please refer to \fBjd.conf\fP(5).
+please refer to
+.BR jd.conf (5).
 .P
 Note: Configuration option names can only contain up to 63 bytes. Configuration
 values, on the other hand, can contain up to 255 bytes. Beware these limits,
@@ -82,7 +83,8 @@ Path to the user-specific configuration directory. Defaults to
 .
 .TP
 .I $XDG_CONFIG_HOME/.config/jd/jd.conf
-This is the main \fBjd\fP configuration file. See \fBjd.conf\fP(5).
+This is the main \fBjd\fP configuration file. See
+.BR jd.conf (5).
 .
 .SH EXAMPLES
 .
@@ -124,4 +126,7 @@ jd config --unset jdd_pAtH
 .SH SEE ALSO
 .
 .nh
-.BR jd "(1), " jd-ls "(1), " jd-path "(1), " jd.conf "(5)"
+.BR jd (1),
+.BR jd-ls (1),
+.BR jd-path (1),
+.BR jd.conf (5)

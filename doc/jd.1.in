@@ -78,7 +78,8 @@ Path to the user-specific configuration directory. Defaults to
 .
 .TP
 .I $XDG_CONFIG_HOME/jd/jd.conf
-This is the main \fBjd\fP configuration file. See \fBjd.conf\fP(5).
+This is the main \fBjd\fP configuration file. See
+.BR jd.conf (5).
 .
 .SH EXAMPLES
 .
@@ -103,4 +104,7 @@ respective command's manual.
 .SH SEE ALSO
 .
 .nh
-.BR jd-config "(1), " jd-ls "(1), " jd-path "(1), " jd.conf "(5)"
+.BR jd-config (1),
+.BR jd-ls (1),
+.BR jd-path (1),
+.BR jd.conf (5)
