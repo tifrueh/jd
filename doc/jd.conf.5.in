@@ -7,11 +7,11 @@ jd.conf \- configuration file for the jd utility
 .SH DESCRIPTION
 .
 .P
-The \fBjd\fR utility can be customised using this configuration file, located at
-\fI$XDG_CONFIG_HOME/jd/jd.conf\fR. It is, however, not recommended to edit this
-file directly, as using \fBjd-conf\fR(1) is much less prone to errors.
+The \fBjd\fP utility can be customised using this configuration file, located at
+\fI$XDG_CONFIG_HOME/jd/jd.conf\fP. It is, however, not recommended to edit this
+file directly, as using \fBjd-conf\fP(1) is much less prone to errors.
 .TP
-If you really want to edit \fIjd.conf\fR directly, the syntax is as follows:
+If you really want to edit \fIjd.conf\fP directly, the syntax is as follows:
 .IP
 Each line shall contain first the name of a configuration option, followed by a
 "=" and then by the value of said configuration option. Spaces are interpreted
@@ -31,9 +31,9 @@ Name and value may both contain any character (excluding '=' in case of the
 name), as long as the size of the name does not exceed 63 bytes and the size of
 the value does not exceed 255 bytes.
 .P
-Please note that any configuration option can be set, even if the \fBjd\fR
+Please note that any configuration option can be set, even if the \fBjd\fP
 utility doesn't do anything with it. The configuration options actually read and
-used by \fBjd\fR are listed under \fIOPTIONS\fR.
+used by \fBjd\fP are listed under \fIOPTIONS\fP.
 .
 .SH OPTIONS
 .
@@ -43,7 +43,7 @@ The file system path to the johnny.decimal system.
 .
 .TP
 .B show_hidden
-Set to "true" to show hidden files when using \fBjd-ls\fR(1) or to "false" to
+Set to "true" to show hidden files when using \fBjd-ls\fP(1) or to "false" to
 hide them.
 .IP
 Default: false

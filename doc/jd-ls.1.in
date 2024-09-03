@@ -16,10 +16,10 @@ jd-ls \- list directories of the johnny.decimal system
 .SH DESCRIPTION
 .
 .P
-The \fBjd-ls\fR command can be used to list the contents of a directory in the
+The \fBjd-ls\fP command can be used to list the contents of a directory in the
 johnny.decimal system. It prints all files and subdirectories of said directory
 to stdout, omitting files and directories beginning with a period (.). This
-behaviour can, however, be customised. See \fBjd.conf\fR(5).
+behaviour can, however, be customised. See \fBjd.conf\fP(5).
 .
 .SH OPTIONS
 .
@@ -38,7 +38,7 @@ the areas will be listed.
 .
 .SH EXIT STATUS
 .
-The \fBjd\fR utility exits > 0 if an error occurs, 0 otherwise.
+The \fBjd\fP utility exits > 0 if an error occurs, 0 otherwise.
 .
 .SH ENVIRONMENT
 .
@@ -50,13 +50,13 @@ path to the johnny.decimal system. Simply set it to the desired path.
 .TP
 .I XDG_CONFIG_HOME
 Path to the user-specific configuration directory. Defaults to
-\fI\(ti/.config\fR. See \fIFILES\fR.
+\fI\(ti/.config\fP. See \fIFILES\fP.
 .
 .SH FILES
 .
 .TP
 .I $XDG_CONFIG_HOME/jd/jd.conf
-This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
+This is the main \fBjd\fP configuration file. See \fBjd.conf\fP(5).
 .
 .SH EXAMPLES
 .
