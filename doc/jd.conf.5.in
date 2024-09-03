@@ -58,3 +58,7 @@ Default: false
 .BR jd-config (1),
 .BR jd-ls (1),
 .BR jd-path (1)
+.
+.P
+.UR https://johnnydecimal.com
+.UE

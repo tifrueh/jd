@@ -108,3 +108,7 @@ respective command's manual.
 .BR jd-ls (1),
 .BR jd-path (1),
 .BR jd.conf (5)
+.
+.P
+.UR https://johnnydecimal.com
+.UE

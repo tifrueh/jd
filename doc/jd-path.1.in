@@ -122,3 +122,7 @@ jcd () {
 .BR jd-config (1),
 .BR jd-ls (1),
 .BR jd.conf (5)
+.
+.P
+.UR https://johnnydecimal.com
+.UE

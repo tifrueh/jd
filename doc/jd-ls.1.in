@@ -108,3 +108,7 @@ Policy document.pdf
 .BR jd-config (1),
 .BR jd-path (1),
 .BR jd.conf (5)
+.
+.P
+.UR https://johnnydecimal.com
+.UE
