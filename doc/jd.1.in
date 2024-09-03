@@ -80,6 +80,26 @@ Path to the user-specific configuration directory. Defaults to
 .I $XDG_CONFIG_HOME/jd/jd.conf
 This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
 .
+.SH EXAMPLES
+.
+.P
+Show the help message:
+.IP
+.EX
+jd --help
+.EE
+.
+.P
+Display version information:
+.IP
+.EX
+jd --version
+.EE
+.
+.P
+For more information and examples about jd commands, please refer to the
+respective command's manual.
+.
 .SH SEE ALSO
 .
 .nh

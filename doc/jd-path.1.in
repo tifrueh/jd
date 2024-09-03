@@ -55,6 +55,65 @@ Path to the user-specific configuration directory. Defaults to
 .I $XDG_CONFIG_HOME/jd/jd.conf
 This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
 .
+.SH EXAMPLES
+.
+.P
+Show the help message:
+.IP
+.EX
+jd path --help
+.EE
+.
+.P
+Display the path to the area "10-19 Life admin":
+.IP
+.EX
+$ \fBjd path 1\fP
+/home/alex/jd/10-19 Life admin
+.EE
+.
+.P
+Display the path to the category "15 House":
+.IP
+.EX
+$ \fBjd path 15\fP
+/home/alex/jd/10-19 Life admin/15 House
+.EE
+.
+.P
+Display the path to the id "15.02 Travel insurance":
+.IP
+.EX
+$ \fBjd path 15.02\fP
+/home/alex/jd/10-19 Life admin/15 House/15.02 Travel insurance
+.EE
+.
+.P
+If you want to be able to "cd" to any johnny.decimal directory quickly, you
+could, for example, define a shell function "jcd" like this:
+.IP
+.EX
+jcd () {
+
+    jd_path=$(jd path "$@") 
+    jd_path_retval=$? 
+
+    if [ $jd_path_retval -eq 0 ] && [ -d $jd_path ]
+    then
+        cd $jd_path
+        return $?
+
+    elif [ ! -z $jd_path ]
+    then
+        echo $jd_path
+        return $jd_path_retval
+
+    else
+        return $jd_path_retval
+    fi
+}
+.EE
+.
 .SH SEE ALSO
 .
 .nh

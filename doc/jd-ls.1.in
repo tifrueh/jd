@@ -58,6 +58,47 @@ Path to the user-specific configuration directory. Defaults to
 .I $XDG_CONFIG_HOME/jd/jd.conf
 This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
 .
+.SH EXAMPLES
+.
+.P
+Show the help message:
+.IP
+.EX
+jd ls --help
+.EE
+.
+.P
+List the contents of the area "10-19 Life admin":
+.IP
+.EX
+$ \fBjd ls 1\fP
+11 Me/
+12 House/
+13 Money/
+14 Online/
+15 Travel/
+.EE
+.
+.P
+List the contents of the category "15 House":
+.IP
+.EX
+$ \fBjd ls 15\fP
+15.01 Checklists/
+15.02 Travel insurance/
+15.03 Loyalty programs/
+.EE
+.
+.P
+List the contents of the id "15.02 Travel insurance":
+.IP
+.EX
+$ \fBjd ls 15.02\fP
+Claim form.pdf
+Payment receipt.pdf
+Policy document.pdf
+.EE
+.
 .SH SEE ALSO
 .
 .nh

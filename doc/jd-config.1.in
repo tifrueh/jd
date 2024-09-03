@@ -84,6 +84,43 @@ Path to the user-specific configuration directory. Defaults to
 .I $XDG_CONFIG_HOME/.config/jd/jd.conf
 This is the main \fBjd\fR configuration file. See \fBjd.conf\fR(5).
 .
+.SH EXAMPLES
+.
+.P
+Show the help message:
+.IP
+.EX
+jd config --help
+.EE
+.
+.P
+Set the configuration option "jd_path" to \fI\(ti/jd\fR:
+.IP
+.EX
+jd config --set jd_config \(ti/jd
+.EE
+.
+.P
+List all configured options:
+.IP
+.EX
+jd config --list
+.EE
+.
+.P
+Display the value of the configuration option "show_hidden":
+.IP
+.EX
+jd config --get show_hidden
+.EE
+.
+.P
+Unset the configuration option "jdd_pAtH":
+.IP
+.EX
+jd config --unset jdd_pAtH
+.EE
+.
 .SH SEE ALSO
 .
 .nh
