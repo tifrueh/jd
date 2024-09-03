@@ -44,7 +44,7 @@ Display a short help message.
 .B \-v, \-\-version
 Display version information.
 .
-.SS JD COMMANDS
+.SS JD commands
 .
 .TP
 .BR jd-path (1)
