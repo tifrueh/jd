@@ -1,3 +1,6 @@
+// Copyright (C) 2024 Timo Früh
+// See main.c for the full notice.
+
 #include "jd-ls.h"
 
 void ls_print_help(char argv_0[]) {

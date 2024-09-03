@@ -1,3 +1,6 @@
+// Copyright (C) 2024 Timo Früh
+// See main.c for the full notice.
+
 #include "path.h"
 
 struct jd_path parse_jd_path(const char path_descriptor[]) {

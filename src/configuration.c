@@ -1,3 +1,6 @@
+// Copyright (C) 2024 Timo Früh
+// See main.c for the full notice.
+
 #include "configuration.h"
 
 struct conf_pair {

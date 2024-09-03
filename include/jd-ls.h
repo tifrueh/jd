@@ -1,3 +1,6 @@
+// Copyright (C) 2024 Timo Früh
+// See ../src/main.c for the full notice.
+
 #ifndef JDLS_H
 #define JDLS_H
 

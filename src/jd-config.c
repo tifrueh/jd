@@ -1,3 +1,6 @@
+// Copyright (C) 2024 Timo Früh
+// See main.c for the full notice.
+
 #include "jd-config.h"
 
 enum actions {

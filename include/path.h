@@ -1,3 +1,6 @@
+// Copyright (C) 2024 Timo Früh
+// See ../src/main.c for the full notice.
+
 #ifndef PATH_H
 #define PATH_H
 

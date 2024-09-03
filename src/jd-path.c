@@ -1,3 +1,6 @@
+// Copyright (C) 2024 Timo Früh
+// See main.c for the full notice.
+
 #include "jd-path.h"
 
 void path_print_help(char argv_0[]) {
