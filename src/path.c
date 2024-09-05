@@ -35,13 +35,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
 
     if (jd_root == NULL || strcmp(jd_root, "") == 0) {
 
-        char help[] = 
-            "No johnny.decimal path specified. If you haven't done so, you should use\n"
-            "to set the config option \"jd_path\":\n"
-            "\n"
-            "  jd config --set jd_path <value>";
-
-        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", help);
+        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_PATH);
         return ERROR;
     }
 

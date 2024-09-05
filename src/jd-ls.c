@@ -53,6 +53,7 @@ int list_dir(const char* directory_path, int show_hidden) {
 int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
 
     if (configuration->jd_path == NULL) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_PATH);
         return ERROR;
     }
 
