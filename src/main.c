@@ -81,7 +81,7 @@ int main(int argc, char* argv[]) {
     int show_hidden_read = read_conf_data(configuration.show_hidden, CONFIG_VALUE_BUFSIZE, configuration.config_path, "show_hidden");
 
     if (show_hidden_read != SUCCESS) {
-        snprintf(configuration.show_hidden, CONFIG_VALUE_BUFSIZE, "%s", "true");
+        snprintf(configuration.show_hidden, CONFIG_VALUE_BUFSIZE, "%s", "false");
     }
 
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0 ) {
