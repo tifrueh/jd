@@ -63,7 +63,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
     struct dirent* dp;
     while ((dp = readdir(dir)) != NULL) {
 
-        if (dp->d_namlen > 0 && dp->d_name[0] == jd_path.area + '0') {
+        if (strlen(dp->d_name) > 0 && dp->d_name[0] == jd_path.area + '0') {
             snprintf(area_name, MAX_FNLEN, "%s", dp->d_name);
             snprintf(fs_path, fs_path_bufsize, "%s/%s", jd_root, area_name);
             retval = SUCCESS;
@@ -94,7 +94,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
 
     while ((dp = readdir(dir)) != NULL) {
 
-        if (dp->d_namlen > 1 && dp->d_name[1] == jd_path.category + '0') {
+        if (strlen(dp->d_name) > 1 && dp->d_name[1] == jd_path.category + '0') {
             snprintf(category_name, MAX_FNLEN, "%s", dp->d_name);
             snprintf(fs_path, fs_path_bufsize, "%s/%s/%s", jd_root, area_name, category_name);
             retval = SUCCESS;
