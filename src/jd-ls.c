@@ -52,6 +52,10 @@ int list_dir(const char* directory_path, int show_hidden) {
 
 int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
 
+    if (configuration->jd_path == NULL) {
+        return ERROR;
+    }
+
     int show_hidden = (strcmp(configuration->show_hidden, "true") == 0) ? (1) : (0);
 
     if (argc < 2) {
