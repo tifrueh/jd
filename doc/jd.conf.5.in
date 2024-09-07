@@ -1,4 +1,4 @@
-.TH JD.CONF 5 2024-09-03 "jd @tag@"
+.TH JD.CONF 5 2024-09-07 "jd @tag@"
 .
 .SH NAME
 .
@@ -40,8 +40,8 @@ used by \fBjd\fP are listed under \fIOPTIONS\fP.
 .SH OPTIONS
 .
 .TP
-.B jd_path
-The file system path to the johnny.decimal system.
+.B jd_root
+The file system path to the johnny.decimal system's root directory.
 .
 .TP
 .B show_hidden

@@ -20,7 +20,7 @@
 
 struct conf_data {
     char* config_path;
-    char* jd_path;
+    char* jd_root;
     char* show_hidden;
 };
 

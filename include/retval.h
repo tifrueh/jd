@@ -6,11 +6,11 @@
 
 #define ERROR_STR_BUFSIZE 256
 
-#define E_NO_JD_PATH \
+#define E_NO_JD_ROOT \
     "No johnny.decimal path specified. If you haven't done so, you should use\n"\
-    "jd-config(1) to set the config option \"jd_path\":\n"\
+    "jd-config(1) to set the config option \"jd_root\":\n"\
     "\n"\
-    "  jd config --set jd_path <value>"
+    "  jd config --set jd_root <value>"
 
 enum return_value {
     SUCCESS = 0,

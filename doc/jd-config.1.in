@@ -1,4 +1,4 @@
-.TH JD-CONFIG 1 2024-09-03 "jd @tag@"
+.TH JD-CONFIG 1 2024-09-07 "jd @tag@"
 .
 .SH NAME
 .
@@ -96,7 +96,7 @@ jd config --help
 .EE
 .
 .P
-Set the configuration option "jd_path" to \fI\(ti/jd\fP:
+Set the configuration option "jd_root" to \fI\(ti/jd\fP:
 .IP
 .EX
 jd config --set jd_config \(ti/jd

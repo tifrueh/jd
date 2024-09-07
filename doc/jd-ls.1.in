@@ -1,4 +1,4 @@
-.TH JD-LS 1 2024-09-03 "jd @tag@"
+.TH JD-LS 1 2024-09-07 "jd @tag@"
 .
 .SH NAME
 .
@@ -44,9 +44,10 @@ The \fBjd\fP utility exits > 0 if an error occurs, 0 otherwise.
 .SH ENVIRONMENT
 .
 .TP
-.I JD_PATH
+.I JD_ROOT
 This environment variable can be used to override the configured file system
-path to the johnny.decimal system. Simply set it to the desired path.
+path to the johnny.decimal system's root directory. Simply set it to the
+desired path.
 .
 .TP
 .I XDG_CONFIG_HOME

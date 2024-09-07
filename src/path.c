@@ -35,7 +35,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
 
     if (jd_root == NULL || strcmp(jd_root, "") == 0) {
 
-        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_PATH);
+        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_ROOT);
         return ERROR;
     }
 

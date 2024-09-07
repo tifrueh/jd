@@ -52,15 +52,15 @@ int list_dir(const char* directory_path, int show_hidden) {
 
 int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
 
-    if (configuration->jd_path == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_PATH);
+    if (configuration->jd_root == NULL) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_ROOT);
         return ERROR;
     }
 
     int show_hidden = (strcmp(configuration->show_hidden, "true") == 0) ? (1) : (0);
 
     if (argc < 2) {
-        return list_dir(configuration->jd_path, show_hidden);
+        return list_dir(configuration->jd_root, show_hidden);
     }
 
     if (strcmp(argv[1], "-h") == 0) {
@@ -76,7 +76,7 @@ int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
         snprintf(error_str, ERROR_STR_BUFSIZE, "unable to allocate memory for the path buffer: %s", strerror(errno));
     }
 
-    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_path);
+    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_root);
 
     if (retval == SUCCESS) {
         retval = list_dir(out_path, show_hidden);

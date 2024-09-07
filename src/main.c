@@ -64,18 +64,18 @@ int main(int argc, char* argv[]) {
 
     enum return_value return_value = ERROR;
 
-    char* jd_path_env = getenv("JD_PATH");
+    char* jd_root_env = getenv("JD_ROOT");
 
-    if (jd_path_env == NULL) {
+    if (jd_root_env == NULL) {
 
-        int jd_path_read = read_conf_data(configuration.jd_path, CONFIG_VALUE_BUFSIZE, configuration.config_path, "jd_path");
+        int jd_root_read = read_conf_data(configuration.jd_root, CONFIG_VALUE_BUFSIZE, configuration.config_path, "jd_root");
 
-        if (jd_path_read != SUCCESS) {
-            configuration.jd_path = NULL;
+        if (jd_root_read != SUCCESS) {
+            configuration.jd_root = NULL;
         };
 
     } else {
-        snprintf(configuration.jd_path, CONFIG_VALUE_BUFSIZE, "%s", jd_path_env);
+        snprintf(configuration.jd_root, CONFIG_VALUE_BUFSIZE, "%s", jd_root_env);
     }
 
     int show_hidden_read = read_conf_data(configuration.show_hidden, CONFIG_VALUE_BUFSIZE, configuration.config_path, "show_hidden");
@@ -116,7 +116,7 @@ int main(int argc, char* argv[]) {
     exit_jd:
 
     free(configuration.config_path);
-    free(configuration.jd_path);
+    free(configuration.jd_root);
 
     if (return_value == ERROR && strcmp(error_str, "") != 0) {
         fprintf(stderr, "%s\n", error_str);

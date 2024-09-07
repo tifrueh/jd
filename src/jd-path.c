@@ -21,8 +21,8 @@ void path_print_help(char argv_0[]) {
 
 int jd_path(int argc, char* argv[], const struct conf_data* configuration) {
 
-    if (configuration->jd_path == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_PATH);
+    if (configuration->jd_root == NULL) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_ROOT);
         return ERROR;
     }
 
@@ -44,7 +44,7 @@ int jd_path(int argc, char* argv[], const struct conf_data* configuration) {
         snprintf(error_str, ERROR_STR_BUFSIZE, "unable to allocate memory for the path buffer: %s", strerror(errno));
     }
 
-    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_path);
+    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_root);
 
     if (retval == SUCCESS) {
         printf("%s\n", out_path);
