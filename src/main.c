@@ -118,7 +118,7 @@ int main(int argc, char* argv[]) {
     free(configuration.config_path);
     free(configuration.jd_root);
 
-    if (return_value == ERROR && strcmp(error_str, "") != 0) {
+    if (return_value != SUCCESS && strcmp(error_str, "") != 0) {
         fprintf(stderr, "%s\n", error_str);
     }
 
