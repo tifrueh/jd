@@ -146,7 +146,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
     }
 
     if (retval != SUCCESS) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to find id %i%i.%i.2", jd_path.area, jd_path.category, jd_path.id);
+        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to find id %i%i.%.2i", jd_path.area, jd_path.category, jd_path.id);
         goto exit_get_fs_path;
     }
 
