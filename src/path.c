@@ -12,11 +12,11 @@ struct jd_path parse_jd_path(const char path_descriptor[]) {
         return retval;
     }
 
-    if (descriptor_length >= 1 && isdigit(path_descriptor[0]) == 1) {
+    if (descriptor_length >= 1 && isdigit(path_descriptor[0]) != 0) {
         retval.area = path_descriptor[0] - '0';
     }
 
-    if (descriptor_length >= 2 && isdigit(path_descriptor[1]) == 1) {
+    if (descriptor_length >= 2 && isdigit(path_descriptor[1]) != 0) {
         retval.category = path_descriptor[1] - '0';
     }
 
@@ -24,7 +24,7 @@ struct jd_path parse_jd_path(const char path_descriptor[]) {
         return retval;
     }
 
-    if (descriptor_length >= 4 && isdigit(path_descriptor[3]) == 1) {
+    if (descriptor_length >= 4 && isdigit(path_descriptor[3]) != 0) {
         retval.id = atoi(path_descriptor + 3);
     }
 
