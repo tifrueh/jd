@@ -95,7 +95,10 @@ int config_optswitch(int optchar, char* optarg) {
             return OPT_FINAL;
 
         case '?':
-            return OPT_ERROR;
+            return OPT_ERROR_INVALID;
+
+        case ':':
+            return OPT_ERROR_MISSING;
 
         default:
             action = CONFIG_LIST;
@@ -109,12 +112,16 @@ int jd_config(int argc, char* argv[], const struct conf_data* configuration) {
 
     int optchar;
 
-    while((optchar = getopt_long(argc, argv, "hg:ls:u:", longopts, NULL)) != -1) {
+    while((optchar = getopt_long(argc, argv, ":hg:ls:u:", longopts, NULL)) != -1) {
         enum optswitch_retval optswitch = config_optswitch(optchar, optarg);
 
         if (optswitch == OPT_FINAL) {
             break;
-        } else if (optswitch == OPT_ERROR) {
+        } else if (optswitch == OPT_ERROR_INVALID) {
+            snprintf(error_str, ERROR_STR_BUFSIZE, "invalid option \"%s\"", argv[optind - 1]);
+            return INPUT_ERROR;
+        } else if (optswitch == OPT_ERROR_MISSING) {
+            snprintf(error_str, ERROR_STR_BUFSIZE, "missing argument to \"%s\"", argv[optind - 1]);
             return INPUT_ERROR;
         }
     }

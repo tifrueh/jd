@@ -7,7 +7,8 @@
 enum optswitch_retval {
     OPT_CONTINUE,
     OPT_FINAL,
-    OPT_ERROR
+    OPT_ERROR_INVALID,
+    OPT_ERROR_MISSING
 };
 
 #endif
