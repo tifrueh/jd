@@ -19,20 +19,19 @@ jd \- navigation and manipulation tool for johnny.decimal systems
 .SH DESCRIPTION
 .
 .P
-Lorem ipsum odor amet, consectetuer adipiscing elit. Nec fames etiam iaculis
-tempor habitasse elit mi vestibulum. Sed fringilla curae nulla parturient
-volutpat sed venenatis sociosqu. Augue duis orci viverra adipiscing dolor
-volutpat enim. Phasellus imperdiet magnis scelerisque sed sapien.
-.
+The
+.B jd
+utility is a tool which helps to quickly navigate and manipulate johnny.decimal
+systems. Its functionality is compartmentalized into various subcommands, which
+are listed under \fIJD commands\fP in the \fIOPTIONS\fP section.
 .P
-Justo ligula sapien metus dapibus suscipit proin varius. Nullam eget enim
-gravida conubia litora donec volutpat bibendum. Consectetur non inceptos
-volutpat himenaeos cras auctor. Nibh pharetra parturient nulla penatibus
-sociosqu facilisis.
-.
-.P
-Nullam mi montes; litora est suspendisse lorem. Nibh elit accumsan; rhoncus
-quisque sodales lobortis. Orci ultricies curae felis luctus interdum arcu.
+Note: Before using
+.B jd\c
+, you should probably configure the \fIjd_root\fP option. For more
+information on how to do this, please refer to
+.BR jd-config (1)
+and
+.BR jd.conf (5).
 .
 .SH OPTIONS
 .
