@@ -1,4 +1,4 @@
-.TH JD-LS 1 2024-09-07 "jd @tag@"
+.TH JD-LS 1 2024-09-09 "jd @tag@"
 .
 .SH NAME
 .
@@ -39,7 +39,25 @@ the areas will be listed.
 .
 .SH EXIT STATUS
 .
-The \fBjd\fP utility exits > 0 if an error occurs, 0 otherwise.
+.TP
+.B 0
+SUCCESS: Everything went as it should.
+.
+.TP
+.B 1
+ERROR: An error outside of below categories occurred.
+.
+.TP
+.B 2
+NOT_FOUND: The target of a search operation was not found.
+.
+.TP
+.B 3
+INPUT_ERROR: Invalid input was provided by the user.
+.
+.TP
+.B 4
+CONFIG_ERROR: An error occurred in the configuration mechanism.
 .
 .SH ENVIRONMENT
 .
