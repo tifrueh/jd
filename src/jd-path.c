@@ -41,7 +41,7 @@ int jd_path(int argc, char* argv[], const struct conf_data* configuration) {
     char* out_path = calloc(MAX_PATHLEN, sizeof(char));
 
     if (out_path == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to allocate memory for the path buffer: %s", strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error allocating memory for the path buffer: %s", strerror(errno));
     }
 
     int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_root);

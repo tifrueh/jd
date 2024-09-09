@@ -40,7 +40,7 @@ void config_print_help(char argv_0[]) {
 int config_set(char* name, char* value, char* path) {
     if (value == NULL) {
         snprintf(error_str, ERROR_STR_BUFSIZE, "%s couldn't be set: empty value", name);
-        return ERROR;
+        return INPUT_ERROR;
     }
 
     char swappath[CONFIG_PATH_BUFSIZE+1];
@@ -56,7 +56,7 @@ int config_get(char* name, char* path) {
     int read_retval = read_conf_data(value_buffer, CONFIG_VALUE_BUFSIZE, path, name);
 
     if (read_retval != SUCCESS) {
-        return ERROR;
+        return read_retval;
     }
 
     printf("%s\n", value_buffer);
@@ -113,7 +113,7 @@ int jd_config(int argc, char* argv[], const struct conf_data* configuration) {
         if (optswitch == OPT_FINAL) {
             break;
         } else if (optswitch == OPT_ERROR) {
-            return OPTPARSE_ERROR;
+            return INPUT_ERROR;
         }
     }
 

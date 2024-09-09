@@ -37,7 +37,7 @@ int list_dir(const char* directory_path, int show_hidden) {
     int scan = scandir(directory_path, &namelist, NULL, alphasort);
 
     if (scan == -1) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to open directory %s: %s", directory_path, strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", directory_path, strerror(errno));
         return ERROR;
     }
 
@@ -73,7 +73,7 @@ int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
     char* out_path = calloc(MAX_PATHLEN, sizeof(char));
 
     if (out_path == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to allocate memory for the path buffer: %s", strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error allocating memory for the path buffer: %s", strerror(errno));
     }
 
     int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_root);

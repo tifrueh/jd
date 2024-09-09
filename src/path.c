@@ -41,7 +41,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
 
     if (jd_path.area == -1) {
         snprintf(error_str, ERROR_STR_BUFSIZE, "invalid area");
-        return ERROR;
+        return INPUT_ERROR;
     }
 
     DIR* dir = opendir(jd_root);
@@ -50,7 +50,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
     char area_name[MAX_FNLEN] = "";
 
     if (dir == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to open directory %s: %s", jd_root, strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", jd_root, strerror(errno));
         return ERROR;
     }
 
@@ -81,7 +81,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
     char category_name[MAX_FNLEN] = "";
 
     if (dir == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to open directory %s: %s", jd_root, strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", jd_root, strerror(errno));
         retval = ERROR;
         goto exit_get_fs_path;
     }
@@ -111,7 +111,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
     char id_name[MAX_FNLEN] = "";
 
     if (dir == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to open directory %s: %s", jd_root, strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", jd_root, strerror(errno));
         retval = ERROR;
         goto exit_get_fs_path;
     }

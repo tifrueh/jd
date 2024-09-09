@@ -16,7 +16,8 @@ enum return_value {
     SUCCESS = 0,
     ERROR = 1,
     NOT_FOUND = 2,
-    OPTPARSE_ERROR = 3
+    INPUT_ERROR = 3,
+    CONFIG_ERROR = 4
 };
 
 extern char error_str[ERROR_STR_BUFSIZE];

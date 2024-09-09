@@ -24,13 +24,13 @@ int parse_line(struct conf_pair* pair, size_t name_bufsize, size_t value_bufsize
     char* equal_sign = strchr(line, '=');
 
     if (equal_sign == NULL) {
-        return ERROR;
+        return CONFIG_ERROR;
     }
 
     int name_size = equal_sign - line;
 
     if (name_size >= name_bufsize) {
-        return ERROR;
+        return CONFIG_ERROR;
     }
 
     snprintf(pair->name, name_size + 1, "%s", line);
@@ -38,7 +38,7 @@ int parse_line(struct conf_pair* pair, size_t name_bufsize, size_t value_bufsize
     int value_size = &line[strlen(line)] - equal_sign;
 
     if (value_size >= value_bufsize) {
-        return ERROR;
+        return CONFIG_ERROR;
     }
 
     snprintf(pair->value, value_size - 1, "%s", equal_sign + 1);
@@ -51,7 +51,7 @@ int read_conf_data(char* buffer, size_t bufsize, const char* path, const char* n
     FILE* confptr = fopen(path, "r");
 
     if (confptr == NULL) {
-        return NOT_FOUND;
+        return CONFIG_ERROR;
     }
 
     int linenum = 1;
@@ -102,7 +102,7 @@ FILE* fopen_mkdir(const char* path, mode_t dir_mode, const char* file_mode) {
         *pathsep = '\0';
 
         if (mkdir(pathdup, dir_mode) && errno != EEXIST) {
-            snprintf(error_str, ERROR_STR_BUFSIZE, "creating directory %s failed: %s", pathdup, strerror(errno));
+            snprintf(error_str, ERROR_STR_BUFSIZE, "error creating directory %s: %s", pathdup, strerror(errno));
             goto exit_fopen_mkdir;
         }
 
@@ -113,7 +113,7 @@ FILE* fopen_mkdir(const char* path, mode_t dir_mode, const char* file_mode) {
     retval = fopen(path, file_mode);
 
     if (retval == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "opening file %s failed: %s", path, strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening file %s: %s", path, strerror(errno));
         goto exit_fopen_mkdir;
     }
 
@@ -154,8 +154,7 @@ int write_conf_data(const char* name, const char* value, const char* path, const
     }
 
     if (swapptr == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "could not update config at %s (swap %s): %s", path, swappath, strerror(errno));
-        retval = ERROR;
+        retval = CONFIG_ERROR;
         goto exit_write;
     }
 
@@ -191,8 +190,8 @@ int write_conf_data(const char* name, const char* value, const char* path, const
     int rename_retval = rename(swappath, path);
 
     if (rename_retval != 0) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to write new config %s: %s", path, strerror(errno));
-        retval = ERROR;
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error writing new config %s: %s", path, strerror(errno));
+        retval = CONFIG_ERROR;
     }
 
     exit_write:
@@ -250,8 +249,8 @@ int delete_conf_data(const char* name, const char* path, const char* swappath) {
     int rename_retval = rename(swappath, path);
 
     if (rename_retval != 0) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "unable to write new config %s: %s", path, strerror(errno));
-        retval = ERROR;
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error writing new config %s: %s", path, strerror(errno));
+        retval = CONFIG_ERROR;
     }
 
     exit_delete:
@@ -275,7 +274,7 @@ int print_conf_data(const char* path) {
     FILE* confptr = fopen(path, "r");
 
     if (confptr == NULL) {
-        return NOT_FOUND;
+        return CONFIG_ERROR;
     }
 
     char line_buffer[CONFIG_LINE_BUFSIZE];
