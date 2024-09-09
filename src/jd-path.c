@@ -21,6 +21,8 @@ void path_print_help(char argv_0[]) {
 
 int jd_path(int argc, char* argv[], const struct conf_data* configuration) {
 
+    snprintf(caller_str, CALLER_STR_BUFSIZE, "jd-%s", argv[0]);
+
     if (configuration->jd_root == NULL) {
         snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_ROOT);
         return ERROR;

@@ -105,6 +105,8 @@ int config_optswitch(int optchar, char* optarg) {
 
 int jd_config(int argc, char* argv[], const struct conf_data* configuration) {
 
+    snprintf(caller_str, CALLER_STR_BUFSIZE, "jd-%s", argv[0]);
+
     int optchar;
 
     while((optchar = getopt_long(argc, argv, "hg:ls:u:", longopts, NULL)) != -1) {

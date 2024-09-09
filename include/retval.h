@@ -5,6 +5,7 @@
 #define ERROR_H
 
 #define ERROR_STR_BUFSIZE 256
+#define CALLER_STR_BUFSIZE 16
 
 #define E_NO_JD_ROOT \
     "No johnny.decimal path specified. If you haven't done so, you should use\n"\
@@ -21,5 +22,6 @@ enum return_value {
 };
 
 extern char error_str[ERROR_STR_BUFSIZE];
+extern char caller_str[CALLER_STR_BUFSIZE];
 
 #endif

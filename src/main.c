@@ -119,7 +119,7 @@ int main(int argc, char* argv[]) {
     free(configuration.jd_root);
 
     if (return_value != SUCCESS && strcmp(error_str, "") != 0) {
-        fprintf(stderr, "%s\n", error_str);
+        fprintf(stderr, "%s: %s\n", caller_str, error_str);
     }
 
     return return_value;
