@@ -27,8 +27,8 @@ int jd_path(int argc, char* argv[], const struct conf_data* configuration) {
     }
 
     if (argc < 2) {
-        path_print_help(argv[0]);
-        return ERROR;
+        printf("%s\n", configuration->jd_root);
+        return SUCCESS;
     }
 
     if (strcmp(argv[1], "-h") == 0) {
