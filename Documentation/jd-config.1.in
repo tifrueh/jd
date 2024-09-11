@@ -117,7 +117,7 @@ jd config --help
 Set the configuration option "jd_root" to \fI\(ti/jd\fP:
 .IP
 .EX
-jd config --set jd_config \(ti/jd
+jd config --set jd_root \(ti/jd
 .EE
 .
 .P
