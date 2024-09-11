@@ -1,8 +1,8 @@
 // Copyright (C) 2024 Timo Früh
 // See ../src/main.c for the full notice.
 
-#ifndef JDCD_H
-#define JDCD_H
+#ifndef JDPATH_H
+#define JDPATH_H
 
 #include <stdio.h>
 #include <string.h>

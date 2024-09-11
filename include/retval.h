@@ -1,8 +1,8 @@
 // Copyright (C) 2024 Timo Früh
 // See ../src/main.c for the full notice.
 
-#ifndef ERROR_H
-#define ERROR_H
+#ifndef RETVAL_H
+#define RETVAL_H
 
 #define ERROR_STR_BUFSIZE 256
 #define CALLER_STR_BUFSIZE 16
