@@ -31,5 +31,4 @@ int write_conf_data(const char* name, const char* value, const char* path, const
 int delete_conf_data(const char* name, const char* path, const char* swappath);
 int print_conf_data(const char* path);
 
-
 #endif
