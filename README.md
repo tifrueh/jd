@@ -23,10 +23,10 @@ The **jd** utility is a simple but powerful tool navigate and manipulate
 
 ## Building and installing
 
-*Note: Right now, building and installing **jd** yourself is the only option. As
-of the first tagged release, however, there will be a homebrew formula in my
-homebrew tap and I'll also add a PGKBUILD to my [PKGBUILD
-repository](https://github.com/tifrueh/PKGBUILDS).*
+*Note: Right now, building and installing **jd** yourself is the only option,
+if you want to test it out. As of the first tagged release, however, there will
+be a homebrew formula in my homebrew tap and I'll also add a PGKBUILD to my
+[PKGBUILD repository](https://github.com/tifrueh/PKGBUILDS).*
 
 This project uses the meson build system, which you'll need to have installed to
 be able to build **jd** without any additional hassle. Please refer to
