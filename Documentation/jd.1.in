@@ -21,9 +21,9 @@ jd \- navigation and manipulation tool for johnny.decimal systems
 .P
 The
 .B jd
-utility is a tool which helps to quickly navigate and manipulate johnny.decimal
-systems. Its functionality is compartmentalized into various subcommands, which
-are listed under \fIJD commands\fP in the \fIOPTIONS\fP section.
+utility is a simple but powerful tool to navigate and manipulate johnny.decimal
+systems with. Its functionality is compartmentalized into various subcommands,
+which are listed under \fIJD commands\fP in the \fIOPTIONS\fP section.
 .P
 Note: Before using
 .B jd\c
