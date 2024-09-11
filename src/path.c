@@ -8,23 +8,27 @@ struct jd_path parse_jd_path(const char path_descriptor[]) {
 
     int descriptor_length = strlen(path_descriptor);
 
-    if (descriptor_length < 1) {
+    if (descriptor_length < 1 || descriptor_length > 5) {
         return retval;
     }
 
-    if (descriptor_length >= 1 && isdigit(path_descriptor[0]) != 0) {
+    if (descriptor_length == 1 && isdigit(path_descriptor[0]) != 0) {
         retval.area = path_descriptor[0] - '0';
     }
 
-    if (descriptor_length >= 2 && isdigit(path_descriptor[1]) != 0) {
+    if (descriptor_length == 2 && isdigit(path_descriptor[1]) != 0) {
+        retval.area = path_descriptor[0] - '0';
         retval.category = path_descriptor[1] - '0';
     }
 
-    if (descriptor_length >= 3 && path_descriptor[2] != '.') {
-        return retval;
-    }
-
-    if (descriptor_length >= 4 && isdigit(path_descriptor[3]) != 0) {
+    if (
+            descriptor_length == 5 &&
+            path_descriptor[2] == '.' &&
+            isdigit(path_descriptor[3]) != 0 &&
+            isdigit(path_descriptor[4]) != 0)
+    {
+        retval.area = path_descriptor[0] - '0';
+        retval.category = path_descriptor[1] - '0';
         retval.id = atoi(path_descriptor + 3);
     }
 
@@ -40,7 +44,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
     }
 
     if (jd_path.area == -1) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "invalid area");
+        snprintf(error_str, ERROR_STR_BUFSIZE, "invalid jd path descriptor");
         return INPUT_ERROR;
     }
 
