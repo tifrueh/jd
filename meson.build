@@ -33,8 +33,8 @@ subdir('include')
 # Execute the src subdir.
 subdir('src')
 
-# Execute the doc subdir.
-subdir('doc')
+# Execute the Documentation subdir.
+subdir('Documentation')
 
 jd = executable(
   'jd', src,
