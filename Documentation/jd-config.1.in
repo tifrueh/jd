@@ -135,10 +135,10 @@ jd config --get show_hidden
 .EE
 .
 .P
-Unset the configuration option "jdd_pAtH":
+Unset the configuration option "show_hidden":
 .IP
 .EX
-jd config --unset jdd_pAtH
+jd config --unset show_hidden
 .EE
 .
 .SH SEE ALSO
