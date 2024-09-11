@@ -46,16 +46,16 @@ Display version information.
 .SS JD commands
 .
 .TP
-.BR jd-path (1)
-Display the path to a directory of the johnny.decimal system.
-.
-.TP
 .BR jd-config (1)
 Get and set configuration options of the \fBjd\fP utility.
 .
 .TP
 .BR jd-ls (1)
 List directories of the johnny.decimal system.
+.
+.TP
+.BR jd-path (1)
+Display the path to a directory of the johnny.decimal system.
 .
 .SH EXIT STATUS
 .
