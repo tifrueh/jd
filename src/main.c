@@ -33,9 +33,9 @@ void print_help(char argv_0[]) {
         "  %1$s <command> ...\n"
         "\n"
         "<command> must be one of the following:\n"
-        "  path      Display the path to a directory of the jd file system\n"
-        "  config    Configure the jdfs utility\n"
-        "  ls        List directories of the jd file system\n"
+        "  config    Get and set configuration options.\n"
+        "  ls        List directories of the johnny.decimal file system.\n"
+        "  path      Display the path to a directory of the johnny.decimal file system.\n"
         "\n"
         "For more information, please consult the manual page.\n";
 
