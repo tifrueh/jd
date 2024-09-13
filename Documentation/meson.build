@@ -1,39 +1,39 @@
 # Configure documentation files.
 configure_file(
-  input: 'jd.1.in',
-  output: 'jd.1',
+  input: 'jdfs.1.in',
+  output: 'jdfs.1',
   configuration: conf_data,
   install: true,
   install_dir: get_option('mandir') + '/man1/'
 )
 
 configure_file(
-  input: 'jd-config.1.in',
-  output: 'jd-config.1',
+  input: 'jdfs-config.1.in',
+  output: 'jdfs-config.1',
   configuration: conf_data,
   install: true,
   install_dir: get_option('mandir') + '/man1/'
 )
 
 configure_file(
-  input: 'jd-ls.1.in',
-  output: 'jd-ls.1',
+  input: 'jdfs-ls.1.in',
+  output: 'jdfs-ls.1',
   configuration: conf_data,
   install: true,
   install_dir: get_option('mandir') + '/man1/'
 )
 
 configure_file(
-  input: 'jd-path.1.in',
-  output: 'jd-path.1',
+  input: 'jdfs-path.1.in',
+  output: 'jdfs-path.1',
   configuration: conf_data,
   install: true,
   install_dir: get_option('mandir') + '/man1/'
 )
 
 configure_file(
-  input: 'jd.conf.5.in',
-  output: 'jd.conf.5',
+  input: 'jdfs.conf.5.in',
+  output: 'jdfs.conf.5',
   configuration: conf_data,
   install: true,
   install_dir: get_option('mandir') + '/man5/'

@@ -1,18 +1,18 @@
-.TH JD 1 2024-09-09 "jd @tag@"
+.TH JDFS 1 2024-09-13 "jdfs @tag@"
 .
 .SH NAME
 .
-jd \- navigation and manipulation tool for johnny.decimal systems
+jdfs \- navigation and manipulation tool for johnny.decimal systems
 .
 .SH SYNOPSIS
 .
-.SY jd
+.SY jdfs
 .RB { " \-h " | " \-\-help " }
-.SY jd
+.SY jdfs
 .RB { " \-v " | " \-\-version " }
 .YS
 .
-.SY jd
+.SY jdfs
 .BR "\<command\> " ...
 .YS
 .
@@ -20,18 +20,18 @@ jd \- navigation and manipulation tool for johnny.decimal systems
 .
 .P
 The
-.B jd
+.B jdfs
 utility is a simple but powerful tool to navigate and manipulate johnny.decimal
 systems with. Its functionality is compartmentalized into various subcommands,
-which are listed under \fIJD commands\fP in the \fIOPTIONS\fP section.
+which are listed under \fIJDFS commands\fP in the \fIOPTIONS\fP section.
 .P
 Note: Before using
-.B jd\c
-, you should probably configure the \fIjd_root\fP option. For more
+.B jdfs\c
+, you should probably configure the \fIjdfs_root\fP option. For more
 information on how to do this, please refer to
-.BR jd-config (1)
+.BR jdfs-config (1)
 and
-.BR jd.conf (5).
+.BR jdfs.conf (5).
 .
 .SH OPTIONS
 .
@@ -43,18 +43,18 @@ Display a short help message.
 .B \-v, \-\-version
 Display version information.
 .
-.SS JD commands
+.SS JDFS commands
 .
 .TP
-.BR jd-config (1)
-Get and set configuration options of the \fBjd\fP utility.
+.BR jdfs-config (1)
+Get and set configuration options of the \fBjdfs\fP utility.
 .
 .TP
-.BR jd-ls (1)
+.BR jdfs-ls (1)
 List directories of the johnny.decimal system.
 .
 .TP
-.BR jd-path (1)
+.BR jdfs-path (1)
 Display the path to a directory of the johnny.decimal system.
 .
 .SH EXIT STATUS
@@ -82,7 +82,7 @@ CONFIG_ERROR: An error occurred in the configuration mechanism.
 .SH ENVIRONMENT
 .
 .TP
-.I JD_ROOT
+.I JDFS_ROOT
 This environment variable can be used to override the configured file system
 path to the johnny.decimal system's root directory. Simply set it to the
 desired path.
@@ -94,9 +94,9 @@ Path to the user-specific configuration directory. Defaults to
 .SH FILES
 .
 .TP
-.I $XDG_CONFIG_HOME/jd/jd.conf
-This is the main \fBjd\fP configuration file. See
-.BR jd.conf (5).
+.I $XDG_CONFIG_HOME/jdfs/jdfs.conf
+This is the main \fBjdfs\fP configuration file. See
+.BR jdfs.conf (5).
 .
 .SH EXAMPLES
 .
@@ -104,27 +104,27 @@ This is the main \fBjd\fP configuration file. See
 Show the help message:
 .IP
 .EX
-jd --help
+jdfs --help
 .EE
 .
 .P
 Display version information:
 .IP
 .EX
-jd --version
+jdfs --version
 .EE
 .
 .P
-For more information and examples about jd commands, please refer to the
+For more information and examples about jdfs commands, please refer to the
 respective command's manual.
 .
 .SH SEE ALSO
 .
 .nh
-.BR jd-config (1),
-.BR jd-ls (1),
-.BR jd-path (1),
-.BR jd.conf (5)
+.BR jdfs-config (1),
+.BR jdfs-ls (1),
+.BR jdfs-path (1),
+.BR jdfs.conf (5)
 .
 .P
 .UR https://johnnydecimal.com

@@ -35,11 +35,11 @@ struct jd_path parse_jd_path(const char path_descriptor[]) {
     return retval;
 };
 
-int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path, const char jd_root[]) {
+int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path, const char jdfs_root[]) {
 
-    if (jd_root == NULL || strcmp(jd_root, "") == 0) {
+    if (jdfs_root == NULL || strcmp(jdfs_root, "") == 0) {
 
-        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_ROOT);
+        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JDFS_ROOT);
         return ERROR;
     }
 
@@ -48,13 +48,13 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
         return INPUT_ERROR;
     }
 
-    DIR* dir = opendir(jd_root);
+    DIR* dir = opendir(jdfs_root);
 
     enum return_value retval = NOT_FOUND;
     char area_name[MAX_FNLEN] = "";
 
     if (dir == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", jd_root, strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", jdfs_root, strerror(errno));
         return ERROR;
     }
 
@@ -63,7 +63,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
 
         if (strlen(dp->d_name) > 0 && dp->d_name[0] == jd_path.area + '0') {
             snprintf(area_name, MAX_FNLEN, "%s", dp->d_name);
-            snprintf(fs_path, fs_path_bufsize, "%s/%s", jd_root, area_name);
+            snprintf(fs_path, fs_path_bufsize, "%s/%s", jdfs_root, area_name);
             retval = SUCCESS;
             break;
         }
@@ -85,7 +85,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
     char category_name[MAX_FNLEN] = "";
 
     if (dir == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", jd_root, strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", jdfs_root, strerror(errno));
         retval = ERROR;
         goto exit_get_fs_path;
     }
@@ -94,7 +94,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
 
         if (strlen(dp->d_name) > 1 && dp->d_name[1] == jd_path.category + '0') {
             snprintf(category_name, MAX_FNLEN, "%s", dp->d_name);
-            snprintf(fs_path, fs_path_bufsize, "%s/%s/%s", jd_root, area_name, category_name);
+            snprintf(fs_path, fs_path_bufsize, "%s/%s/%s", jdfs_root, area_name, category_name);
             retval = SUCCESS;
             break;
         }
@@ -115,7 +115,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
     char id_name[MAX_FNLEN] = "";
 
     if (dir == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", jd_root, strerror(errno));
+        snprintf(error_str, ERROR_STR_BUFSIZE, "error opening directory %s: %s", jdfs_root, strerror(errno));
         retval = ERROR;
         goto exit_get_fs_path;
     }
@@ -142,7 +142,7 @@ int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path
         *space = ' ';
 
         if (atoi(id) == jd_path.id) {
-            snprintf(fs_path, fs_path_bufsize, "%s/%s/%s/%s", jd_root, area_name, category_name, id_name);
+            snprintf(fs_path, fs_path_bufsize, "%s/%s/%s/%s", jdfs_root, area_name, category_name, id_name);
             retval = SUCCESS;
             break;
         }

@@ -1,9 +1,11 @@
 // Copyright (C) 2024 Timo Früh
 // See ../src/main.c for the full notice.
 
-#ifndef JDPATH_H
-#define JDPATH_H
+#ifndef JDFSLS_H
+#define JDFSLS_H
 
+#include <ctype.h>
+#include <dirent.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -11,6 +13,6 @@
 #include "path.h"
 #include "retval.h"
 
-int jd_path(int argc, char* argv[], const struct conf_data* configuration);
+int jdfs_ls(int argc, char* argv[], const struct conf_data* configuration);
 
 #endif

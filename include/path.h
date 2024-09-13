@@ -23,6 +23,6 @@ struct jd_path {
 };
 
 struct jd_path parse_jd_path(const char path_descriptor[]);
-int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path, const char jd_root[]);
+int get_fs_path(char* fs_path, int fs_path_bufsize, const struct jd_path jd_path, const char jdfs_root[]);
 
 #endif

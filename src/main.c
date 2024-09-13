@@ -1,4 +1,4 @@
-// jd - navigation and manipulation tool for johnny.decimal systems
+// jdfs - navigation and manipulation tool for johnny.decimal systems
 // Copyright (C) 2024 Timo Früh
 //
 // This program is free software: you can redistribute it and/or modify
@@ -19,9 +19,9 @@
 #include <string.h>
 
 #include "configuration.h"
-#include "jd-path.h"
-#include "jd-config.h"
-#include "jd-ls.h"
+#include "jdfs-path.h"
+#include "jdfs-config.h"
+#include "jdfs-ls.h"
 #include "mesonconf.h"
 
 void print_help(char argv_0[]) {
@@ -33,9 +33,9 @@ void print_help(char argv_0[]) {
         "  %1$s <command> ...\n"
         "\n"
         "<command> must be one of the following:\n"
-        "  path      Display the path to a directory of the jd system\n"
-        "  config    Configure the jd utility\n"
-        "  ls        List directories of the jd system\n"
+        "  path      Display the path to a directory of the jd file system\n"
+        "  config    Configure the jdfs utility\n"
+        "  ls        List directories of the jd file system\n"
         "\n"
         "For more information, please consult the manual page.\n";
 
@@ -64,18 +64,18 @@ int main(int argc, char* argv[]) {
 
     enum return_value return_value = ERROR;
 
-    char* jd_root_env = getenv("JD_ROOT");
+    char* jdfs_root_env = getenv("JDFS_ROOT");
 
-    if (jd_root_env == NULL) {
+    if (jdfs_root_env == NULL) {
 
-        int jd_root_read = read_conf_data(configuration.jd_root, CONFIG_VALUE_BUFSIZE, configuration.config_path, "jd_root");
+        int jdfs_root_read = read_conf_data(configuration.jdfs_root, CONFIG_VALUE_BUFSIZE, configuration.config_path, "jdfs_root");
 
-        if (jd_root_read != SUCCESS) {
-            configuration.jd_root = NULL;
+        if (jdfs_root_read != SUCCESS) {
+            configuration.jdfs_root = NULL;
         };
 
     } else {
-        snprintf(configuration.jd_root, CONFIG_VALUE_BUFSIZE, "%s", jd_root_env);
+        snprintf(configuration.jdfs_root, CONFIG_VALUE_BUFSIZE, "%s", jdfs_root_env);
     }
 
     int show_hidden_read = read_conf_data(configuration.show_hidden, CONFIG_VALUE_BUFSIZE, configuration.config_path, "show_hidden");
@@ -87,36 +87,36 @@ int main(int argc, char* argv[]) {
     if (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0 ) {
         print_help(argv[0]);
         return_value = SUCCESS;
-        goto exit_jd;
+        goto exit_jdfs;
     }
 
     if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
         printf("%s\n", TAG);
         return_value = SUCCESS;
-        goto exit_jd;
+        goto exit_jdfs;
     }
 
     if (strcmp(argv[1], "ls") == 0) {
-        return_value = jd_ls(argc - 1, &argv[1], &configuration);
-        goto exit_jd;
+        return_value = jdfs_ls(argc - 1, &argv[1], &configuration);
+        goto exit_jdfs;
     }
 
     if (strcmp(argv[1], "path") == 0) {
-        return_value = jd_path(argc - 1, &argv[1], &configuration);
-        goto exit_jd;
+        return_value = jdfs_path(argc - 1, &argv[1], &configuration);
+        goto exit_jdfs;
     }
 
     if (strcmp(argv[1], "config") == 0) {
-        return_value = jd_config(argc - 1, &argv[1], &configuration);
-        goto exit_jd;
+        return_value = jdfs_config(argc - 1, &argv[1], &configuration);
+        goto exit_jdfs;
     }
 
     print_help(argv[0]);
 
-    exit_jd:
+    exit_jdfs:
 
     free(configuration.config_path);
-    free(configuration.jd_root);
+    free(configuration.jdfs_root);
     free(configuration.show_hidden);
 
     if (return_value != SUCCESS && strcmp(error_str, "") != 0) {

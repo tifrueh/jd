@@ -1,7 +1,7 @@
 // Copyright (C) 2024 Timo Früh
 // See main.c for the full notice.
 
-#include "jd-config.h"
+#include "jdfs-config.h"
 
 enum actions {
     CONFIG_HELP,
@@ -26,11 +26,11 @@ void config_print_help(char argv_0[]) {
     char help_string[] =
         "Usage:\n"
         "\n"
-        "  jd %1$s [ -h | --help ]\n"
-        "  jd %1$s [ -g | --get ] option\n"
-        "  jd %1$s [ -l | --list ]\n"
-        "  jd %1$s [ -s | --set ] option value\n"
-        "  jd %1$s [ -u | --unset ] option\n"
+        "  jdfs %1$s [ -h | --help ]\n"
+        "  jdfs %1$s [ -g | --get ] option\n"
+        "  jdfs %1$s [ -l | --list ]\n"
+        "  jdfs %1$s [ -s | --set ] option value\n"
+        "  jdfs %1$s [ -u | --unset ] option\n"
         "\n"
         "For more information, please consult the manual page.\n";
 
@@ -106,9 +106,9 @@ int config_optswitch(int optchar, char* optarg) {
     }
 }
 
-int jd_config(int argc, char* argv[], const struct conf_data* configuration) {
+int jdfs_config(int argc, char* argv[], const struct conf_data* configuration) {
 
-    snprintf(caller_str, CALLER_STR_BUFSIZE, "jd-%s", argv[0]);
+    snprintf(caller_str, CALLER_STR_BUFSIZE, "jdfs-%s", argv[0]);
 
     int optchar;
     int old_optind = 1;

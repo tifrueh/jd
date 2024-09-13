@@ -7,11 +7,11 @@
 #define ERROR_STR_BUFSIZE 256
 #define CALLER_STR_BUFSIZE 16
 
-#define E_NO_JD_ROOT \
+#define E_NO_JDFS_ROOT \
     "No johnny.decimal path specified. If you haven't done so, you should use\n"\
-    "jd-config(1) to set the config option \"jd_root\":\n"\
+    "jdfs-config(1) to set the config option \"jdfs_root\":\n"\
     "\n"\
-    "  jd config --set jd_root <value>"
+    "  jdfs config --set jdfs_root <value>"
 
 enum return_value {
     SUCCESS = 0,

@@ -1,19 +1,19 @@
-.TH JD.CONF 5 2024-09-07 "jd @tag@"
+.TH JDFS.CONF 5 2024-09-13 "jdfs @tag@"
 .
 .SH NAME
 .
-jd.conf \- configuration file for the jd utility
+jdfs.conf \- configuration file for the jdfs utility
 .
 .SH DESCRIPTION
 .
 .P
-The \fBjd\fP utility can be customised using this configuration file, located at
-\fI$XDG_CONFIG_HOME/jd/jd.conf\fP. It is, however, not recommended to edit this
+The \fBjdfs\fP utility can be customised using this configuration file, located at
+\fI$XDG_CONFIG_HOME/jdfs/jdfs.conf\fP. It is, however, not recommended to edit this
 file directly, as using
-.BR jd-conf (1)
+.BR jdfs-conf (1)
 is much less prone to errors.
 .TP
-If you really want to edit \fIjd.conf\fP directly, the syntax is as follows:
+If you really want to edit \fIjdfs.conf\fP directly, the syntax is as follows:
 .IP
 Each line shall contain first the name of a configuration option, followed by a
 "=" and then by the value of said configuration option. Spaces are interpreted
@@ -33,20 +33,20 @@ Name and value may both contain any character (excluding '=' in case of the
 name), as long as the size of the name does not exceed 63 bytes and the size of
 the value does not exceed 255 bytes.
 .P
-Please note that any configuration option can be set, even if the \fBjd\fP
+Please note that any configuration option can be set, even if the \fBjdfs\fP
 utility doesn't do anything with it. The configuration options actually read and
-used by \fBjd\fP are listed under \fIOPTIONS\fP.
+used by \fBjdfs\fP are listed under \fIOPTIONS\fP.
 .
 .SH OPTIONS
 .
 .TP
-.B jd_root
+.B jdfs_root
 The file system path to the johnny.decimal system's root directory.
 .
 .TP
 .B show_hidden
 Set to "true" to show hidden files when using
-.BR jd-ls (1)
+.BR jdfs-ls (1)
 or to "false" to hide them.
 .IP
 Default: false
@@ -54,10 +54,10 @@ Default: false
 .SH SEE ALSO
 .
 .nh
-.BR jd (1),
-.BR jd-config (1),
-.BR jd-ls (1),
-.BR jd-path (1)
+.BR jdfs (1),
+.BR jdfs-config (1),
+.BR jdfs-ls (1),
+.BR jdfs-path (1)
 .
 .P
 .UR https://johnnydecimal.com

@@ -1,5 +1,5 @@
 project(
-  'jd', 'c',
+  'jdfs', 'c',
   license: 'GPL-3.0-or-later',
   version: '0.1.0'
 )
@@ -36,8 +36,8 @@ subdir('src')
 # Execute the Documentation subdir.
 subdir('Documentation')
 
-jd = executable(
-  'jd', src,
+jdfs = executable(
+  'jdfs', src,
   include_directories: incdir,
   install: true,
 )

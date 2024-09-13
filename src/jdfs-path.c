@@ -1,14 +1,14 @@
 // Copyright (C) 2024 Timo Früh
 // See main.c for the full notice.
 
-#include "jd-path.h"
+#include "jdfs-path.h"
 
 void path_print_help(char argv_0[]) {
 
   char help_string[] =
       "Usage:\n"
-      "  jd %1$s [ -h | --help ]\n"
-      "  jd %1$s [ <jd_path_descriptor> ]\n"
+      "  jdfs %1$s [ -h | --help ]\n"
+      "  jdfs %1$s [ <jd_path_descriptor> ]\n"
       "\n"
       "<jd_path_descriptor> (if specified) must a valid and existing\n"
       "johnny.decimal area, category or id. To specify an area, use only the\n"
@@ -19,17 +19,17 @@ void path_print_help(char argv_0[]) {
   printf(help_string, argv_0);
 }
 
-int jd_path(int argc, char* argv[], const struct conf_data* configuration) {
+int jdfs_path(int argc, char* argv[], const struct conf_data* configuration) {
 
-    snprintf(caller_str, CALLER_STR_BUFSIZE, "jd-%s", argv[0]);
+    snprintf(caller_str, CALLER_STR_BUFSIZE, "jdfs-%s", argv[0]);
 
-    if (configuration->jd_root == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_ROOT);
+    if (configuration->jdfs_root == NULL) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JDFS_ROOT);
         return ERROR;
     }
 
     if (argc < 2) {
-        printf("%s\n", configuration->jd_root);
+        printf("%s\n", configuration->jdfs_root);
         return SUCCESS;
     }
 
@@ -46,7 +46,7 @@ int jd_path(int argc, char* argv[], const struct conf_data* configuration) {
         snprintf(error_str, ERROR_STR_BUFSIZE, "error allocating memory for the path buffer: %s", strerror(errno));
     }
 
-    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_root);
+    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jdfs_root);
 
     if (retval == SUCCESS) {
         printf("%s\n", out_path);

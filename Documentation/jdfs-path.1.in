@@ -1,23 +1,23 @@
-.TH JD-PATH 1 2024-09-09 "jd @tag@"
+.TH JDFS-PATH 1 2024-09-13 "jdfs @tag@"
 .
 .SH NAME
 .
-jd-path \- display the path to a directory of the johnny.decimal system
+jdfs-path \- display the path to a directory of the johnny.decimal system
 .
 .SH SYNOPSIS
 .
-.SY jd-path
+.SY jdfs-path
 .RB { " \- h " | " \-\-help " }
 .YS
 .
-.SY jd-path
+.SY jdfs-path
 .I <jd_path_descriptor>
 .YS
 .
 .SH DESCRIPTION
 .
 .P
-The \fBjd-path\fP command can be used to display the path of a directory in the
+The \fBjdfs-path\fP command can be used to display the path of a directory in the
 johnny.decimal system. It can, for example, be used in a shell function to set
 up "cd"-like functionality.
 .
@@ -58,7 +58,7 @@ CONFIG_ERROR: An error occurred in the configuration mechanism.
 .SH ENVIRONMENT
 .
 .TP
-.I JD_ROOT
+.I JDFS_ROOT
 This environment variable can be used to override the configured file system
 path to the johnny.decimal system's root directory. Simply set it to the
 desired path.
@@ -71,9 +71,9 @@ Path to the user-specific configuration directory. Defaults to
 .SH FILES
 .
 .TP
-.I $XDG_CONFIG_HOME/jd/jd.conf
-This is the main \fBjd\fP configuration file. See
-.BR jd.conf (5).
+.I $XDG_CONFIG_HOME/jdfs/jdfs.conf
+This is the main \fBjdfs\fP configuration file. See
+.BR jdfs.conf (5).
 .
 .SH EXAMPLES
 .
@@ -81,14 +81,14 @@ This is the main \fBjd\fP configuration file. See
 Show the help message:
 .IP
 .EX
-jd path --help
+jdfs path --help
 .EE
 .
 .P
 Display the path to the area "10-19 Life admin":
 .IP
 .EX
-$ \fBjd path 1\fP
+$ \fBjdfs path 1\fP
 /home/alex/jd/10-19 Life admin
 .EE
 .
@@ -96,7 +96,7 @@ $ \fBjd path 1\fP
 Display the path to the category "15 House":
 .IP
 .EX
-$ \fBjd path 15\fP
+$ \fBjdfs path 15\fP
 /home/alex/jd/10-19 Life admin/15 House
 .EE
 .
@@ -104,7 +104,7 @@ $ \fBjd path 15\fP
 Display the path to the id "15.02 Travel insurance":
 .IP
 .EX
-$ \fBjd path 15.02\fP
+$ \fBjdfs path 15.02\fP
 /home/alex/jd/10-19 Life admin/15 House/15.02 Travel insurance
 .EE
 .
@@ -137,10 +137,10 @@ jcd () {
 .SH SEE ALSO
 .
 .nh
-.BR jd (1),
-.BR jd-config (1),
-.BR jd-ls (1),
-.BR jd.conf (5)
+.BR jdfs (1),
+.BR jdfs-config (1),
+.BR jdfs-ls (1),
+.BR jdfs.conf (5)
 .
 .P
 .UR https://johnnydecimal.com

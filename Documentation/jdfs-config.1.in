@@ -1,43 +1,43 @@
-.TH JD-CONFIG 1 2024-09-13 "jd @tag@"
+.TH JDFS-CONFIG 1 2024-09-13 "jdfs @tag@"
 .
 .SH NAME
 .
-jd\-config \- get and set configuration options of the jd utility
+jdfs\-config \- get and set configuration options of the jdfs utility
 .
 .SH SYNOPSIS
 .
-.SY "jd config"
+.SY "jdfs config"
 .RB { " \-h " | " \-\-help " }
 .YS
 .
-.SY "jd config"
+.SY "jdfs config"
 .RB { " \-g " | " \-\-get \fIoption " }
-.SY "jd config"
+.SY "jdfs config"
 .RB { " \-l " | " \-\-list " }
-.SY "jd config"
+.SY "jdfs config"
 .RB { " \-s " | " \-\-set \fIoption " } " \fIvalue"
-.SY "jd config"
+.SY "jdfs config"
 .RB { " \-u " | " \-\-unset \fIoption " }
 .YS
 .
 .SH DESCRIPTION
 .
 .P
-The \fBjd-config\fP command is the preferred way to get, set and unset
-configuration options of the \fBjd\fP utility. It is, of course, also possible
+The \fBjdfs-config\fP command is the preferred way to get, set and unset
+configuration options of the \fBjdfs\fP utility. It is, of course, also possible
 to set configuration options by editing the configuration file directly (see
-\fIFILES\fP), but using \fBjd-config\fP is way less prone to errors, so it is
+\fIFILES\fP), but using \fBjdfs-config\fP is way less prone to errors, so it is
 strongly recommended that you use it.
 .P
-If no arguments are specified, \fBjd-config\fP will simply list all
+If no arguments are specified, \fBjdfs-config\fP will simply list all
 configuration options and their values, behaving essentially as if \fB--list\fP
 were specified.
 .P
-It is also worth mentioning that \fBjd-config\fP will allow you to set any
-configuration option, even if the \fBjd\fP utility doesn't do anything with it.
-To see which configuration options are actually read and used by \fBjd\fP,
+It is also worth mentioning that \fBjdfs-config\fP will allow you to set any
+configuration option, even if the \fBjdfs\fP utility doesn't do anything with it.
+To see which configuration options are actually read and used by \fBjdfs\fP,
 please refer to
-.BR jd.conf (5).
+.BR jdfs.conf (5).
 .P
 Note: Configuration option names can only contain up to 63 bytes. Configuration
 values, on the other hand, can contain up to 255 bytes. Beware these limits,
@@ -71,11 +71,11 @@ Unset a configuration option.
 .P
 Please note that only the first of the above arguments will be read. The
 following command will, for example, only unset the \fItest\fP option, and not
-display the value of \fIjd_root\fP.
+display the value of \fIjdfs_root\fP.
 .P
 .IP
 .EX
-$ jd config -u test -g jd_root
+$ jdfs config -u test -g jdfs_root
 .EE
 .
 .SH EXIT STATUS
@@ -110,9 +110,9 @@ Path to the user-specific configuration directory. Defaults to
 .SH FILES
 .
 .TP
-.I $XDG_CONFIG_HOME/.config/jd/jd.conf
-This is the main \fBjd\fP configuration file. See
-.BR jd.conf (5).
+.I $XDG_CONFIG_HOME/.config/jdfs/jdfs.conf
+This is the main \fBjdfs\fP configuration file. See
+.BR jdfs.conf (5).
 .
 .SH EXAMPLES
 .
@@ -120,44 +120,44 @@ This is the main \fBjd\fP configuration file. See
 Show the help message:
 .IP
 .EX
-jd config --help
+jdfs config --help
 .EE
 .
 .P
-Set the configuration option "jd_root" to \fI\(ti/jd\fP:
+Set the configuration option "jdfs_root" to \fI\(ti/jd\fP:
 .IP
 .EX
-jd config --set jd_root \(ti/jd
+jdfs config --set jdfs_root \(ti/jd
 .EE
 .
 .P
 List all configured options:
 .IP
 .EX
-jd config --list
+jdfs config --list
 .EE
 .
 .P
 Display the value of the configuration option "show_hidden":
 .IP
 .EX
-jd config --get show_hidden
+jdfs config --get show_hidden
 .EE
 .
 .P
 Unset the configuration option "show_hidden":
 .IP
 .EX
-jd config --unset show_hidden
+jdfs config --unset show_hidden
 .EE
 .
 .SH SEE ALSO
 .
 .nh
-.BR jd (1),
-.BR jd-ls (1),
-.BR jd-path (1),
-.BR jd.conf (5)
+.BR jdfs (1),
+.BR jdfs-ls (1),
+.BR jdfs-path (1),
+.BR jdfs.conf (5)
 .
 .P
 .UR https://johnnydecimal.com

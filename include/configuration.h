@@ -12,7 +12,7 @@
 
 #include "retval.h"
 
-#define CONFIG_STUB "jd/jd.conf"
+#define CONFIG_STUB "jdfs/jdfs.conf"
 #define CONFIG_PATH_BUFSIZE 256
 #define CONFIG_LINE_BUFSIZE 512
 #define CONFIG_NAME_BUFSIZE 64
@@ -20,7 +20,7 @@
 
 struct conf_data {
     char* config_path;
-    char* jd_root;
+    char* jdfs_root;
     char* show_hidden;
 };
 

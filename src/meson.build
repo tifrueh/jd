@@ -1,8 +1,8 @@
 src += files(
   'configuration.c',
-  'jd-path.c',
-  'jd-config.c',
-  'jd-ls.c',
+  'jdfs-path.c',
+  'jdfs-config.c',
+  'jdfs-ls.c',
   'main.c',
   'path.c',
   'retval.c'

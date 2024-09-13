@@ -1,26 +1,26 @@
-.TH JD-LS 1 2024-09-09 "jd @tag@"
+.TH JDFS-LS 1 2024-09-13 "jdfs @tag@"
 .
 .SH NAME
 .
-jd-ls \- list directories of the johnny.decimal system
+jdfs-ls \- list directories of the johnny.decimal system
 .
 .SH SYNOPSIS
 .
-.SY jd-ls
+.SY jdfs-ls
 .RB { " \-h " | " \-\-help " }
 .YS
-.SY jd-ls
+.SY jdfs-ls
 .RI [ " <jd_path_descriptor> " ]
 .YS
 .
 .SH DESCRIPTION
 .
 .P
-The \fBjd-ls\fP command can be used to list the contents of a directory in the
+The \fBjdfs-ls\fP command can be used to list the contents of a directory in the
 johnny.decimal system. It prints all files and subdirectories of said directory
 to stdout, omitting files and directories beginning with a period (.). This
 behaviour can, however, be customised. See
-.BR jd.conf (5).
+.BR jdfs.conf (5).
 .
 .SH OPTIONS
 .
@@ -62,7 +62,7 @@ CONFIG_ERROR: An error occurred in the configuration mechanism.
 .SH ENVIRONMENT
 .
 .TP
-.I JD_ROOT
+.I JDFS_ROOT
 This environment variable can be used to override the configured file system
 path to the johnny.decimal system's root directory. Simply set it to the
 desired path.
@@ -75,9 +75,9 @@ Path to the user-specific configuration directory. Defaults to
 .SH FILES
 .
 .TP
-.I $XDG_CONFIG_HOME/jd/jd.conf
-This is the main \fBjd\fP configuration file. See
-.BR jd.conf (5).
+.I $XDG_CONFIG_HOME/jdfs/jdfs.conf
+This is the main \fBjdfs\fP configuration file. See
+.BR jdfs.conf (5).
 .
 .SH EXAMPLES
 .
@@ -85,14 +85,14 @@ This is the main \fBjd\fP configuration file. See
 Show the help message:
 .IP
 .EX
-jd ls --help
+jdfs ls --help
 .EE
 .
 .P
 List the contents of the area "10-19 Life admin":
 .IP
 .EX
-$ \fBjd ls 1\fP
+$ \fBjdfs ls 1\fP
 11 Me/
 12 House/
 13 Money/
@@ -104,7 +104,7 @@ $ \fBjd ls 1\fP
 List the contents of the category "15 House":
 .IP
 .EX
-$ \fBjd ls 15\fP
+$ \fBjdfs ls 15\fP
 15.01 Checklists/
 15.02 Travel insurance/
 15.03 Loyalty programs/
@@ -114,7 +114,7 @@ $ \fBjd ls 15\fP
 List the contents of the id "15.02 Travel insurance":
 .IP
 .EX
-$ \fBjd ls 15.02\fP
+$ \fBjdfs ls 15.02\fP
 Claim form.pdf
 Payment receipt.pdf
 Policy document.pdf
@@ -123,10 +123,10 @@ Policy document.pdf
 .SH SEE ALSO
 .
 .nh
-.BR jd (1),
-.BR jd-config (1),
-.BR jd-path (1),
-.BR jd.conf (5)
+.BR jdfs (1),
+.BR jdfs-config (1),
+.BR jdfs-path (1),
+.BR jdfs.conf (5)
 .
 .P
 .UR https://johnnydecimal.com

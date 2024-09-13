@@ -1,14 +1,14 @@
 // Copyright (C) 2024 Timo Früh
 // See main.c for the full notice.
 
-#include "jd-ls.h"
+#include "jdfs-ls.h"
 
 void ls_print_help(char argv_0[]) {
 
   char help_string[] =
       "Usage:\n"
-      "  jd %1$s [ -h | --help ]\n"
-      "  jd %1$s [ <jd_path_descriptor> ]\n"
+      "  jdfs %1$s [ -h | --help ]\n"
+      "  jdfs %1$s [ <jd_path_descriptor> ]\n"
       "\n"
       "<jd_path_descriptor> (if specified) must a valid and existing\n"
       "johnny.decimal area, category or id. To specify an area, use only the\n"
@@ -50,19 +50,19 @@ int list_dir(const char* directory_path, int show_hidden) {
     return SUCCESS;
 }
 
-int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
+int jdfs_ls(int argc, char* argv[], const struct conf_data* configuration) {
 
-    snprintf(caller_str, CALLER_STR_BUFSIZE, "jd-%s", argv[0]);
+    snprintf(caller_str, CALLER_STR_BUFSIZE, "jdfs-%s", argv[0]);
 
-    if (configuration->jd_root == NULL) {
-        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JD_ROOT);
+    if (configuration->jdfs_root == NULL) {
+        snprintf(error_str, ERROR_STR_BUFSIZE, "%s", E_NO_JDFS_ROOT);
         return ERROR;
     }
 
     int show_hidden = (strcmp(configuration->show_hidden, "true") == 0) ? (1) : (0);
 
     if (argc < 2) {
-        return list_dir(configuration->jd_root, show_hidden);
+        return list_dir(configuration->jdfs_root, show_hidden);
     }
 
     if (strcmp(argv[1], "-h") == 0) {
@@ -78,7 +78,7 @@ int jd_ls(int argc, char* argv[], const struct conf_data* configuration) {
         snprintf(error_str, ERROR_STR_BUFSIZE, "error allocating memory for the path buffer: %s", strerror(errno));
     }
 
-    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jd_root);
+    int retval = get_fs_path(out_path, MAX_PATHLEN, path, configuration->jdfs_root);
 
     if (retval == SUCCESS) {
         retval = list_dir(out_path, show_hidden);
