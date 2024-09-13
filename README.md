@@ -1,6 +1,6 @@
-# JD
+# jdfs – johnny.decimal file system tool
 
-The **jd** utility is a simple but powerful tool navigate and manipulate
+The **jdfs** utility is a simple but powerful tool navigate and manipulate
 [johnny.decimal](https://johnnydecimal.com) file systems with.
 
 ## Features
@@ -33,7 +33,7 @@ hesitate to open an issue here on GitHub.**
 ### Homebrew (macOS)
 
 I maintain a homebrew tap containing my own software, which means you can
-easily install **jd** with `brew` on macOS.
+easily install **jdfs** with `brew` on macOS.
 
 1. Add my tap:
 
@@ -41,35 +41,35 @@ easily install **jd** with `brew` on macOS.
 $ brew tap tifrueh/mytap
 ```
 
-2. Install **jd**:
+2. Install **jdfs**:
 
 ```console
-$ brew install tifrueh/mytap/jd
+$ brew install tifrueh/mytap/jdfs
 ```
 
 ### PKGBUILD (Arch Linux)
 
 You can find a PKGBUILD file in [my PKBUILD
-repository](https://github.com/tifrueh/PKGBUILDs/tree/main/tifrueh/jd).
+repository](https://github.com/tifrueh/PKGBUILDs/tree/main/tifrueh/jdfs).
 Download it or clone the repository and then use `makepkg` and `pacman` to
 install it as you would a package from the AUR.
 
 *Note: I might even put this on the AUR, but only if I can see that more than a
 handful of people are using it, as suggested by the [AUR submission
 guidelines](https://wiki.archlinux.org/title/AUR_submission_guidelines). If you
-are "more than a handful of people" and would like to see **jd** on the AUR,
+are "more than a handful of people" and would like to see **jdfs** on the AUR,
 don't hesitate to open a GitHub issue here on this repository. You can, of
 course, also send me an email, if you prefer.*
 
 ### Build from source (macOS, Linux)
 
-To build **jd** without any additional hassle, you'll need to have the meson
+To build **jdfs** without any additional hassle, you'll need to have the meson
 build system and a compiler toolchain installed. If you don't know how to do
 this, there is a [guide on meson's
 website](https://mesonbuild.com/SimpleStart.html) you can read.
 
 After having installed meson and a compiler, you can execute the following
-commands in the root directory of this repository to build and install **jd**:
+commands in the root directory of this repository to build and install **jdfs**:
 
 ```console
 $ meson setup build
@@ -85,7 +85,7 @@ $ meson configure [...] -C build
 
 To learn more about possible configuration options, use the `--help` flag.
 
-Now, to build and install **jd**, execute the following command:
+Now, to build and install **jdfs**, execute the following command:
 
 ```console
 $ meson install -C build
@@ -101,14 +101,14 @@ to port it to Windows. This is mainly because I don't have any experience and
 very little knowledge about the Windows ecosystem, but also because I wrote
 this program primarily for myself and I don't use Windows. :)
 
-But if you *do* use Windows, would like to use **jd** *on* Windows and have an
+But if you *do* use Windows, would like to use **jdfs** *on* Windows and have an
 idea on how to port it *to* Windows, you're very welcome to open an issue or
 pull request, or to send me an email about it.
 
 ## Additional information
 
 Please refer to the manual pages for any additional information on the program.
-`jd(1)` is a good starting point. All other relevant pages are mentioned in its
+`jdfs(1)` is a good starting point. All other relevant pages are mentioned in its
 `SEE ALSO` section.
 
 If you want to view the manual pages without installing them, clone the
@@ -117,5 +117,5 @@ any manual page contained in the `Documentation` directory of this repository.
 This could be done, for example, like so:
 
 ```console
-$ man ./Documentation/jd.1.in
+$ man ./Documentation/jdfs.1.in
 ```
