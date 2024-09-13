@@ -111,19 +111,30 @@ int jd_config(int argc, char* argv[], const struct conf_data* configuration) {
     snprintf(caller_str, CALLER_STR_BUFSIZE, "jd-%s", argv[0]);
 
     int optchar;
+    int old_optind = 1;
 
     while((optchar = getopt_long(argc, argv, ":hg:ls:u:", longopts, NULL)) != -1) {
         enum optswitch_retval optswitch = config_optswitch(optchar, optarg);
 
         if (optswitch == OPT_FINAL) {
             break;
-        } else if (optswitch == OPT_ERROR_INVALID) {
+        } else if (optswitch == OPT_ERROR_INVALID && optind != old_optind) {
             snprintf(error_str, ERROR_STR_BUFSIZE, "invalid option \"%s\"", argv[optind - 1]);
             return INPUT_ERROR;
-        } else if (optswitch == OPT_ERROR_MISSING) {
+        } else if (optswitch == OPT_ERROR_MISSING && optind != old_optind) {
             snprintf(error_str, ERROR_STR_BUFSIZE, "missing argument to \"%s\"", argv[optind - 1]);
             return INPUT_ERROR;
+        } else if (optswitch == OPT_ERROR_INVALID && optind == old_optind) {
+            snprintf(error_str, ERROR_STR_BUFSIZE, "invalid option \"%s\"", argv[optind]);
+            return INPUT_ERROR;
+        } else if (optswitch == OPT_ERROR_MISSING && optind == old_optind) {
+            snprintf(error_str, ERROR_STR_BUFSIZE, "missing argument to \"%s\"", argv[optind]);
+            return INPUT_ERROR;
         }
+
+        // Store the value of optind to check whether it has moved in the next
+        // iteration of the loop.
+        old_optind = optind;
     }
 
     switch (action) {
