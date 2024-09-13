@@ -2,7 +2,7 @@
 .
 .SH NAME
 .
-jdfs \- navigation and manipulation tool for johnny.decimal systems
+jdfs \- navigation and manipulation tool for johnny.decimal file systems
 .
 .SH SYNOPSIS
 .
@@ -22,7 +22,7 @@ jdfs \- navigation and manipulation tool for johnny.decimal systems
 The
 .B jdfs
 utility is a simple but powerful tool to navigate and manipulate johnny.decimal
-systems with. Its functionality is compartmentalized into various subcommands,
+file systems with. Its functionality is compartmentalized into various subcommands,
 which are listed under \fIJDFS commands\fP in the \fIOPTIONS\fP section.
 .P
 Note: Before using
@@ -51,11 +51,11 @@ Get and set configuration options of the \fBjdfs\fP utility.
 .
 .TP
 .BR jdfs-ls (1)
-List directories of the johnny.decimal system.
+List directories of the johnny.decimal file system.
 .
 .TP
 .BR jdfs-path (1)
-Display the path to a directory of the johnny.decimal system.
+Display the path to a directory of the johnny.decimal file system.
 .
 .SH EXIT STATUS
 .
@@ -83,9 +83,9 @@ CONFIG_ERROR: An error occurred in the configuration mechanism.
 .
 .TP
 .I JDFS_ROOT
-This environment variable can be used to override the configured file system
-path to the johnny.decimal system's root directory. Simply set it to the
-desired path.
+This environment variable can be used to override the configured path to the
+johnny.decimal file system's root directory. Simply set it to the desired path.
+.
 .TP
 .I XDG_CONFIG_HOME
 Path to the user-specific configuration directory. Defaults to

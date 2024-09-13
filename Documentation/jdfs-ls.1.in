@@ -2,7 +2,7 @@
 .
 .SH NAME
 .
-jdfs-ls \- list directories of the johnny.decimal system
+jdfs-ls \- list directories of the johnny.decimal file system
 .
 .SH SYNOPSIS
 .
@@ -17,7 +17,7 @@ jdfs-ls \- list directories of the johnny.decimal system
 .
 .P
 The \fBjdfs-ls\fP command can be used to list the contents of a directory in the
-johnny.decimal system. It prints all files and subdirectories of said directory
+johnny.decimal file system. It prints all files and subdirectories of said directory
 to stdout, omitting files and directories beginning with a period (.). This
 behaviour can, however, be customised. See
 .BR jdfs.conf (5).
@@ -63,9 +63,8 @@ CONFIG_ERROR: An error occurred in the configuration mechanism.
 .
 .TP
 .I JDFS_ROOT
-This environment variable can be used to override the configured file system
-path to the johnny.decimal system's root directory. Simply set it to the
-desired path.
+This environment variable can be used to override the configured path to the
+johnny.decimal file system's root directory. Simply set it to the desired path.
 .
 .TP
 .I XDG_CONFIG_HOME

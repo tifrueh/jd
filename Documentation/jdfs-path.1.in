@@ -2,7 +2,7 @@
 .
 .SH NAME
 .
-jdfs-path \- display the path to a directory of the johnny.decimal system
+jdfs-path \- display the path to a directory of the johnny.decimal file system
 .
 .SH SYNOPSIS
 .
@@ -17,9 +17,9 @@ jdfs-path \- display the path to a directory of the johnny.decimal system
 .SH DESCRIPTION
 .
 .P
-The \fBjdfs-path\fP command can be used to display the path of a directory in the
-johnny.decimal system. It can, for example, be used in a shell function to set
-up "cd"-like functionality.
+The \fBjdfs-path\fP command can be used to display the path of a directory in
+the johnny.decimal file system. It can, for example, be used in a shell
+function to set up "cd"-like functionality.
 .
 .SH OPTIONS
 .
@@ -59,9 +59,8 @@ CONFIG_ERROR: An error occurred in the configuration mechanism.
 .
 .TP
 .I JDFS_ROOT
-This environment variable can be used to override the configured file system
-path to the johnny.decimal system's root directory. Simply set it to the
-desired path.
+This environment variable can be used to override the configured path to the
+johnny.decimal file system's root directory. Simply set it to the desired path.
 .
 .TP
 .I XDG_CONFIG_HOME

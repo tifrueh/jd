@@ -41,7 +41,7 @@ used by \fBjdfs\fP are listed under \fIOPTIONS\fP.
 .
 .TP
 .B jdfs_root
-The file system path to the johnny.decimal system's root directory.
+The file path to the johnny.decimal file system's root directory.
 .
 .TP
 .B show_hidden
