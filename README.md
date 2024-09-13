@@ -90,10 +90,10 @@ anything, use the `--dry-run` flag.*
 
 ### Windows
 
-The project, in its current state, does not support Windows and I have no
-direct intention to port it to Windows. This is mainly because I don't have any
-experience and very little knowledge about the Windows ecosystem, but also
-because I wrote this program primarily for myself and I don't use Windows. :)
+The project, in its current state, does not support Windows and I do not intend
+to port it to Windows. This is mainly because I don't have any experience and
+very little knowledge about the Windows ecosystem, but also because I wrote
+this program primarily for myself and I don't use Windows. :)
 
 But if you *do* use Windows, would like to use **jd** *on* Windows and have an
 idea on how to port it *to* Windows, you're very welcome to open an issue or
