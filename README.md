@@ -14,27 +14,56 @@ The **jd** utility is a simple but powerful tool navigate and manipulate
 
 ## Features that will be added in the future
 
-- Check your johnny.decimal file system for misnamed directories.
+- Check your johnny.decimal file system for misnamed directories or errant
+  files.
 
 - Find an id, category or area by a part of its name.
 
 - Change the number of an area, category or id and update its subdirectories
   automatically.
 
-## Building and installing
+## Installation
 
-*Note: Right now, building and installing **jd** yourself is the only option,
-if you want to test it out. As of the first tagged release, however, there will
-be a homebrew formula in my homebrew tap and I'll also add a PGKBUILD to my
-[PKGBUILD repository](https://github.com/tifrueh/PKGBUILDS).*
+### Homebrew (macOS)
 
-This project uses the meson build system, which you'll need to have installed to
-be able to build **jd** without any additional hassle. Please refer to
-[mesonbuild.com](https://mesonbuild.com) for information on how to install meson
-on your system.
+I maintain a homebrew tap containing my own software, which means you can
+easily install **jd** with `brew` on macOS.
 
-After having installed meson, you can execute the following commands in the root
-directory of this repository to build and install **jd**:
+1. Add my tap:
+
+```console
+$ brew tap tifrueh/mytap
+```
+
+2. Install **jd**:
+
+```console
+$ brew install tifrueh/mytap/jd
+```
+
+### PKGBUILD (Arch Linux)
+
+You can find a PKGBUILD file in [my PKBUILD
+repository](https://github.com/tifrueh/PKGBUILDs/tree/main/tifrueh/jd).
+Download it or clone the repository and then use `makepkg` and `pacman` to
+install it as you would a package from the AUR.
+
+*Note: I might even put this on the AUR, but only if I can see that more than a
+handful of people are using it, as suggested by the [AUR submission
+guidelines](https://wiki.archlinux.org/title/AUR_submission_guidelines). If you
+are "more than a handful of people" and would like to see **jd** on the AUR,
+don't hesitate to open a GitHub issue here on this repository. You can, of
+course, also send me an email, if you prefer.*
+
+### Build from source (macOS, Linux)
+
+To build **jd** without any additional hassle, you'll need to have the meson
+build system and a compiler toolchain installed. If you don't know how to do
+this, there is a [guide on meson's
+website](https://mesonbuild.com/SimpleStart.html) you can read.
+
+After having installed meson and a compiler, you can execute the following
+commands in the root directory of this repository to build and install **jd**:
 
 ```console
 $ meson setup build
@@ -58,6 +87,17 @@ $ meson install -C build
 
 *Note: If you want to see what would be installed where without installing
 anything, use the `--dry-run` flag.*
+
+### Windows
+
+The project, in its current state, does not support Windows and I have no
+direct intention to port it to Windows. This is mainly because I don't have any
+experience and very little knowledge about the Windows ecosystem, but also
+because I wrote this program primarily for myself and I don't use Windows. :)
+
+But if you *do* use Windows, would like to use **jd** *on* Windows and have an
+idea on how to port it *to* Windows, you're very welcome to open an issue or
+pull request, or to send me an email about it.
 
 ## Additional information
 
