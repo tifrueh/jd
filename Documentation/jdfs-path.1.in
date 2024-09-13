@@ -112,12 +112,12 @@ If you want to be able to "cd" to any johnny.decimal directory quickly, you
 could, for example, define a shell function "jcd" like this:
 .IP
 .EX
-jcd () {
+function jcd () {
 
-    jd_path=$(jd path "$@") 
-    jd_path_retval=$? 
+    jd_path=$(jdfs path "$@") 
+    jdfs_path_retval=$? 
 
-    if [ $jd_path_retval -eq 0 ] && [ -d $jd_path ]
+    if [ $jdfs_path_retval -eq 0 ] && [ -d $jd_path ]
     then
         cd $jd_path
         return $?
@@ -125,10 +125,10 @@ jcd () {
     elif [ ! -z $jd_path ]
     then
         echo $jd_path
-        return $jd_path_retval
+        return $jdfs_path_retval
 
     else
-        return $jd_path_retval
+        return $jdfs_path_retval
     fi
 }
 .EE
