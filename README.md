@@ -12,7 +12,7 @@ The **jd** utility is a simple but powerful tool navigate and manipulate
 - Get and set the utility's configuration options from the command line or using
   a configuration file.
 
-## Features that will be added in the future
+## Planned features for version 1.0.0
 
 - Check your johnny.decimal file system for misnamed directories or errant
   files.
@@ -21,6 +21,12 @@ The **jd** utility is a simple but powerful tool navigate and manipulate
 
 - Change the number of an area, category or id and update its subdirectories
   automatically.
+
+## Disclaimer
+
+**This project is still in early development and has not been tested
+extensively. If you experience any problems (you probably will), please do not
+hesitate to open an issue here on GitHub.**
 
 ## Installation
 
