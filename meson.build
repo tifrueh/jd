@@ -1,7 +1,7 @@
 project(
   'jdfs', 'c',
   license: 'GPL-3.0-or-later',
-  version: '0.1.0'
+  version: '0.1.0-git'
 )
 
 # Try to get version string from git or use project version if that fails.
