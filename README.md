@@ -49,7 +49,7 @@ $ brew install tifrueh/mytap/jdfs
 
 ### PKGBUILD (Arch Linux)
 
-You can find a PKGBUILD file in [my PKBUILD
+You can find a PKGBUILD file in [my PKGBUILD
 repository](https://github.com/tifrueh/PKGBUILDs/tree/main/jdfs).
 Download it or clone the repository and then use `makepkg` and `pacman` to
 install it as you would a package from the AUR.
