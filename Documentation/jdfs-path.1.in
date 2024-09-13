@@ -114,8 +114,8 @@ could, for example, define a shell function "jcd" like this:
 .EX
 function jcd () {
 
-    jd_path=$(jdfs path "$@") 
-    jdfs_path_retval=$? 
+    jd_path=$(jdfs path "$@")
+    jdfs_path_retval=$?
 
     if [ $jdfs_path_retval -eq 0 ] && [ -d $jd_path ]
     then
