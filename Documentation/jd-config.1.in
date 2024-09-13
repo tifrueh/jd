@@ -1,4 +1,4 @@
-.TH JD-CONFIG 1 2024-09-09 "jd @tag@"
+.TH JD-CONFIG 1 2024-09-13 "jd @tag@"
 .
 .SH NAME
 .
@@ -67,6 +67,16 @@ doesn't exist yet.
 .TP
 .BI "\-u, \-\-unset " option
 Unset a configuration option.
+.
+.P
+Please note that only the first of the above arguments will be read. The
+following command will, for example, only unset the \fItest\fP option, and not
+display the value of \fIjd_root\fP.
+.P
+.IP
+.EX
+$ jd config -u test -g jd_root
+.EE
 .
 .SH EXIT STATUS
 .
